@@ -1,0 +1,43 @@
+Gente, les comento un poco la estructura:
+
+1. Hay dos source folders que es donde se escribe el codigo java. En src/java va el codigo que hace a la aplicaci—n,
+si se fijan ya cree un paquete vacio (ar.com.tpclinica.modelo) donde ya podemos ir metiendo codigo referente al 
+modelo (si no ven el paquete, seguramente es porque tienen puesto el filtro de "empty packets", pueden sacarlo 
+lledo al ultimo botoncito de la view "Package Explorer" y entrar a filters). En test/java va el cogido que testea
+al codigo de src/java, y tiene que respetar la misma estructura de paquetes (por ejemplo, si yo estoy testeando una
+clase que se llama "OrdeMedica", que se encuentra dentro del package "ar.com.tpclinica.modelo", tengo que nombrar a
+la clase de test "OrdenMedicaTestCase" y ponerla dentro de test/java, en un paquete con exactamente con el mismo 
+nombre que el package de "OrdenMedica").
+
+2. En el directorio bin vamos a poner los scrips que launchean a la aplicacion (puede ser un .bat o un .sh, depende
+del sistema operativo en que lo deployemos)
+
+3. En build/classes iran a parar los .classes de compilacion de la aplicacion, esto se configura desde el buildPath,
+ya lo confure no se hagan problema, si no les hace esto tienen que ir a propiedades del proyecto y confugurar la
+parte de source del buildPath y en el ultimo textbox poner esa ruta.
+
+4. En cfg iran los archivos de configuracion a medida que los vayamos necesitando.
+
+5. En lib iran todos los .jar que vayamos necesitando.
+
+6. En recursos, todos los archivos que son necesarios para la ejecucion del sistema y no sean codigo, como por ejemplo
+xml's, archivos .properties, etc.
+
+7. Despues mas adelante se agregara un directorio dist, que sirve para alamcenar la release de la aplicacion (ya se
+configurar un antScrip para que lo haga).
+
+Otra cosa que no forma parte de la estructura pero me parece un punto de mucha importancia para el desarrollo del
+TP, es el tema del repositorio. Para los que trabajan dia a dia con repositorios CVS o SVN, no les estoy agregando
+nada, pero a los que no lo hacen es importantisimo:
+
+1. Antes de comitiar cualquier clase, hagan primero un syncronice contra el repositorio, y si no tienen conflictos
+comitiar. 
+
+2. En caso de tener conflictos, HAGAN EL MERGE (el eclipse tiene muy buenas herramientas para esto), salven, esperen
+a que no les tire conflitos devuelta y recien ahi comiteen. 
+
+3. Cuando comiteen hagan una breve descripcion de lo que agregaron.
+
+4. NO COMITIAR .classes (ya que se generan solo en cada maquina y ocupan espacio en el repositorio). Para que el eclipse
+no le reconozca los cambios de la carpeta que contiene estos archivos .classes, hay que agregar esta carpeta al 
+cvs.ignore, es muy facil, para el que no lo sabe se lo explicare con detalle.
