@@ -2,7 +2,10 @@
 <project-modules id="moduleCoreId" project-version="1.5.0">
     <wb-module deploy-name="servidorwelaboratorio">
         <wb-resource deploy-path="/" source-path="/WebContent"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src_serviciosremotoslaboratorio"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src_persistencialaboratorio"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src_servicioslaboratorio"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src_servidorweblaboratorio"/>
         <property name="context-root" value="servidorwelaboratorio"/>
         <property name="java-output-path" value="build/classes"/>
     </wb-module>
