@@ -18,5 +18,17 @@ public class ServiciosAplicacionClinicaPaciente extends
 	public void borrarPaciente(int idPaciente) {
 		repositorioPacientes.borrar(getPaciente(idPaciente));
 	}
+	/**
+	 * @return the repositorioPacientes
+	 */
+	public Repositorio<Paciente> getRepositorioPacientes() {
+		return repositorioPacientes;
+	}
+	/**
+	 * @param repositorioPacientes the repositorioPacientes to set
+	 */
+	public void setRepositorioPacientes(Repositorio<Paciente> repositorioPacientes) {
+		this.repositorioPacientes = repositorioPacientes;
+	}
 
 }
