@@ -1,12 +1,17 @@
 package ar.com.tpclinica.negocio;
 
+import java.util.Collection;
+import java.util.List;
+
 public class Medico {
 	private int id;
 	private String nombre;
 	private String apellido;
 	private Especialidad especialidad;
 	
-	public void getPosiblesItemsOrdenMedicas() {
+	public Collection<Prestacion> getPosiblesItemsOrdenMedicas() {
+			return especialidad.getPrestaciones();
+			
 		
 	}
 	public String getNombreCompleto() {

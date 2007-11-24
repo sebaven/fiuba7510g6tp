@@ -8,7 +8,7 @@ public class ServiciosAplicacionClinicaOrdenMedica extends
 		ServiciosAplicacionClinica {
 	private Repositorio<OrdenMedica> respositorioOrdenesMedicas;
 	public void autorizarOrdenMedica(int idOrdenMedica) {
-		
+	
 	}
 	public void cancelarOrdenMedica(int idOrdenMedica) {
 		
