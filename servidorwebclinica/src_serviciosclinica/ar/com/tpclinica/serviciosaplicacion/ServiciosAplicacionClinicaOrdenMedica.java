@@ -28,5 +28,18 @@ public class ServiciosAplicacionClinicaOrdenMedica extends
 	public void agregarItemAOrdenMedica(int idOrdenMedica, OrdenMedicaItem ordenMedicaItem) {
 		getOrdenMedica(idOrdenMedica).agregarItem(ordenMedicaItem);
 	}
+	/**
+	 * @return the respositorioOrdenesMedicas
+	 */
+	public Repositorio<OrdenMedica> getRespositorioOrdenesMedicas() {
+		return respositorioOrdenesMedicas;
+	}
+	/**
+	 * @param respositorioOrdenesMedicas the respositorioOrdenesMedicas to set
+	 */
+	public void setRespositorioOrdenesMedicas(
+			Repositorio<OrdenMedica> respositorioOrdenesMedicas) {
+		this.respositorioOrdenesMedicas = respositorioOrdenesMedicas;
+	}
 
 }

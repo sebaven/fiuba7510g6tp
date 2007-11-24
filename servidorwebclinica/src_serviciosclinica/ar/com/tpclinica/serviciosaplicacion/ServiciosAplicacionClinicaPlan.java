@@ -17,5 +17,17 @@ public class ServiciosAplicacionClinicaPlan extends ServiciosAplicacionClinica {
 	public void modificarPlan(int idPlan) {
 		
 	}
+	/**
+	 * @return the repositorioPlanes
+	 */
+	public Repositorio<Plan> getRepositorioPlanes() {
+		return repositorioPlanes;
+	}
+	/**
+	 * @param repositorioPlanes the repositorioPlanes to set
+	 */
+	public void setRepositorioPlanes(Repositorio<Plan> repositorioPlanes) {
+		this.repositorioPlanes = repositorioPlanes;
+	}
 
 }

@@ -7,4 +7,18 @@ public class PrestacionesPorOrden extends Operando {
 		prestacion = presta;
 	}
 
+	/**
+	 * @return the prestacion
+	 */
+	public String getPrestacion() {
+		return prestacion;
+	}
+
+	/**
+	 * @param prestacion the prestacion to set
+	 */
+	public void setPrestacion(String prestacion) {
+		this.prestacion = prestacion;
+	}
+
 }

@@ -5,6 +5,20 @@ import ar.com.tpclinica.negocio.OrdenMedica;
 public class OperacionDeResultadoDirecto implements Operacion {
 	private Resultado resultado;
 	
+	/**
+	 * @return the resultado
+	 */
+	public Resultado getResultado() {
+		return resultado;
+	}
+
+	/**
+	 * @param resultado the resultado to set
+	 */
+	public void setResultado(Resultado resultado) {
+		this.resultado = resultado;
+	}
+
 	public OperacionDeResultadoDirecto(Resultado resul) {
 		resultado = resul;
 	}

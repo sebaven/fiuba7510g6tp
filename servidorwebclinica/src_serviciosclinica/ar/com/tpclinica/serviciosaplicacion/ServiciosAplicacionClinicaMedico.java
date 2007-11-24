@@ -30,5 +30,30 @@ public class ServiciosAplicacionClinicaMedico extends
 	public Collection<Especialidad> getEspecialidades() {
 		return repositorioEspecialidades.getAll();
 	}
+	/**
+	 * @return the repositorioEspecialidades
+	 */
+	public Repositorio<Especialidad> getRepositorioEspecialidades() {
+		return repositorioEspecialidades;
+	}
+	/**
+	 * @param repositorioEspecialidades the repositorioEspecialidades to set
+	 */
+	public void setRepositorioEspecialidades(
+			Repositorio<Especialidad> repositorioEspecialidades) {
+		this.repositorioEspecialidades = repositorioEspecialidades;
+	}
+	/**
+	 * @return the repositorioMedicos
+	 */
+	public RepositorioMedicos getRepositorioMedicos() {
+		return repositorioMedicos;
+	}
+	/**
+	 * @param repositorioMedicos the repositorioMedicos to set
+	 */
+	public void setRepositorioMedicos(RepositorioMedicos repositorioMedicos) {
+		this.repositorioMedicos = repositorioMedicos;
+	}
 
 }

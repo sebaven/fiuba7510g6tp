@@ -11,6 +11,55 @@ public class Especialidad {
 	public Collection<Prestacion> getPrestaciones() {
 		return prestaciones;
 	}
+
+	/**
+	 * @return the codigo
+	 */
+	public int getCodigo() {
+		return codigo;
+	}
+
+	/**
+	 * @param codigo the codigo to set
+	 */
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
+	}
+
+	/**
+	 * @return the descripcion
+	 */
+	public String getDescripcion() {
+		return descripcion;
+	}
+
+	/**
+	 * @param descripcion the descripcion to set
+	 */
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+
+	/**
+	 * @return the nombre
+	 */
+	public String getNombre() {
+		return nombre;
+	}
+
+	/**
+	 * @param nombre the nombre to set
+	 */
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	/**
+	 * @param prestaciones the prestaciones to set
+	 */
+	public void setPrestaciones(Collection<Prestacion> prestaciones) {
+		this.prestaciones = prestaciones;
+	}
 	
 	
 
