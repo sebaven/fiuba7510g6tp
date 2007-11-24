@@ -1,7 +1,7 @@
 package ar.com.tpclinica.negocio;
 
 import java.util.Collection;
-
+import ar.com.tpclinica.persistencia.*;
 public class Especialidad {
 	private int codigo;
 	private String nombre;
@@ -9,9 +9,10 @@ public class Especialidad {
 	private Collection<Prestacion> prestaciones;
 	
 	public Collection<Prestacion> getPrestaciones() {
-		return prestaciones;
+	
+	return prestaciones;
 	}
-
+	
 	/**
 	 * @return the codigo
 	 */
@@ -61,6 +62,11 @@ public class Especialidad {
 		this.prestaciones = prestaciones;
 	}
 	
+	public void agregarPrestacion(Prestacion p){
+		prestaciones.add(p);
+	}
+	public void borrarPrestacion(Prestacion p){
 	
-
+		prestaciones.remove(p);
+	}
 }
