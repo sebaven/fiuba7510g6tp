@@ -1,12 +1,18 @@
 package ar.com.tpclinica.negocio;
 
 import java.util.Collection;
+import java.util.LinkedList;
+
 import ar.com.tpclinica.persistencia.*;
 public class Especialidad {
 	private int codigo;
 	private String nombre;
 	private String descripcion;
 	private Collection<Prestacion> prestaciones;
+	
+	public Especialidad(){
+		prestaciones = new LinkedList<Prestacion>();
+	}
 	
 	public Collection<Prestacion> getPrestaciones() {
 	
