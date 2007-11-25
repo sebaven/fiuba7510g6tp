@@ -6,6 +6,15 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src_persistencialaboratorio"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src_servicioslaboratorio"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src_servidorweblaboratorio"/>
+        <dependent-module deploy-path="/WEB-INF/lib" handle="module:/resource/servicioslaboratorio/servicioslaboratorio">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module deploy-path="/WEB-INF/lib" handle="module:/resource/persistencialaboratorio/persistencialaboratorio">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module deploy-path="/WEB-INF/lib" handle="module:/resource/dominiolaboratorio/dominiolaboratorio">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <property name="context-root" value="servidorwelaboratorio"/>
         <property name="java-output-path" value="build/classes"/>
     </wb-module>

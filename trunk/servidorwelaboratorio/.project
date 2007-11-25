@@ -3,6 +3,9 @@
 	<name>servidorwelaboratorio</name>
 	<comment></comment>
 	<projects>
+		<project>servicioslaboratorio</project>
+		<project>persistencialaboratorio</project>
+		<project>dominiolaboratorio</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
