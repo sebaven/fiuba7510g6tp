@@ -56,7 +56,7 @@ public class Hidratador {
 	}
 	
 	public void hidratarMedicos(RepositorioMedicosImp repo){
-		int cantidad = 3;
+		int cantidad = 4;
 		Repositorio<Especialidad> repEsp = RepositoriosProvider.getInstancia().getRepositorioEspecialidad();
 		
 		Medico m[] = new Medico[cantidad];
@@ -80,7 +80,7 @@ public class Hidratador {
 	}
 	
 	public void hidratarOrdenes(Repositorio<OrdenMedica> repo){
-		int cantidad = 4;
+		int cantidad = 3;
 		OrdenMedica om[] = new OrdenMedica[cantidad];
 		
 		Repositorio<Prestacion> repPrestaciones = RepositoriosProvider.getInstancia().getRepositorioPrestacion();
