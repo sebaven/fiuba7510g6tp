@@ -30,7 +30,19 @@ public class RepositorioImp <E> implements Repositorio<E> {
 	}
 
 	public Collection<E> getAll() {
-		return coleccion.values();
+		return (Collection<E>)coleccion.values();
 	}
+
+	
+	/** Si la clave no existe, agrega la entrada.
+	 *  Si la clave existe, modifica el contenido de dicha clave*/
+	public void modify(int clave, E o) {
+		if (!coleccion.keySet().contains(clave)){
+			coleccion.put(clave, o);
+		}else{
+			coleccion.replace(clave, o);
+		}
+	}
+	
 
 }

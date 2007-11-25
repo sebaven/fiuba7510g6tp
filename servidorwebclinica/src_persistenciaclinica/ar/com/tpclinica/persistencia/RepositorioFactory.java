@@ -10,10 +10,12 @@ public class RepositorioFactory {
 	
 	private static RepositorioImp<Prestacion> repoPrestaciones;
 	private static RepositorioImp<Especialidad> repoEspecialidades;
+	private static RepositorioMedicosImp repoMedicos;
 	
 	private RepositorioFactory(){
 		repoPrestaciones = new RepositorioImp<Prestacion>();
 		repoEspecialidades = new RepositorioImp<Especialidad>();
+		repoMedicos = new RepositorioMedicosImp();
 	}
 	
 	
@@ -24,6 +26,7 @@ public class RepositorioFactory {
 			Hidratador h = new Hidratador();
 			h.hidratarPrestaciones(repoPrestaciones);
 			h.hidratarEspecialidades(repoEspecialidades);
+			h.hidratarMedicos(repoMedicos);
 		}
 		return _instancia;
 	}
@@ -34,5 +37,9 @@ public class RepositorioFactory {
 	
 	public RepositorioImp<Especialidad> getRepositorioEspecialidad(){
 		return repoEspecialidades;
+	}
+	
+	public RepositorioMedicosImp getRepositorioMedico(){
+		return repoMedicos;
 	}
 }

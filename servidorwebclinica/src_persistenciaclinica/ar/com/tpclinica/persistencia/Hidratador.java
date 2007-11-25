@@ -54,4 +54,28 @@ public class Hidratador {
 			repoEspecialidades.add(e[i]);
 		}
 	}
+	
+	public void hidratarMedicos(RepositorioMedicosImp repo){
+		int cantidad = 3;
+		Repositorio<Especialidad> repEsp = RepositorioFactory.getInstancia().getRepositorioEspecialidad();
+		
+		Medico m[] = new Medico[cantidad];
+		
+		for (int i=0; i<cantidad; i++){
+			m[i] = new Medico();
+		}
+		
+		m[0].setNombre("Mariano"); m[0].setApellido("Sanchez");
+		m[0].setId(5000); m[0].setEspecialidad(repEsp.get(0));
+		
+		m[1].setNombre("Emiliano"); m[1].setApellido("Perez");
+		m[1].setId(5001); m[1].setEspecialidad(repEsp.get(1));
+		
+		m[2].setNombre("Laura"); m[2].setApellido("Lopez");
+		m[2].setId(5002); m[2].setEspecialidad(repEsp.get(2));		
+		
+		for (int i=0; i<cantidad; i++){
+			repo.add(m[i]);
+		}
+	}
 }
