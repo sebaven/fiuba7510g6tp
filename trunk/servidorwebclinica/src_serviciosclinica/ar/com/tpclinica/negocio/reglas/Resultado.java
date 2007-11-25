@@ -2,6 +2,10 @@ package ar.com.tpclinica.negocio.reglas;
 
 public class Resultado {
 	public String resultado;
+	
+	public Resultado (String res){
+		this.resultado = res;
+	}
 
 	/**
 	 * @return the resultado

@@ -24,8 +24,7 @@ public class OperacionDeResultadoDirecto implements Operacion {
 	}
 
 	public Resultado aplicar(OrdenMedica om) {
-		// TODO Auto-generated method stub
-		return null;
+		return this.resultado;
 	}
 
 }

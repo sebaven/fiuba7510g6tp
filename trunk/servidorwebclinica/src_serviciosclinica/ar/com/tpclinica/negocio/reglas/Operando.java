@@ -11,9 +11,8 @@ public abstract class Operando {
 	public void setTipo(int tipo) {
 		this.tipo = tipo;
 	}
-	public Object getValor(OrdenMedica orden) {
-		return null;
-	}
+	abstract public int getValor(OrdenMedica orden);
+	
 	public int getTipo() {
 		return tipo;
 	}

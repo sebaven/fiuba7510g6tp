@@ -4,7 +4,8 @@ import java.util.Collection;
 
 public class ReglaSimple {
 	private String comparador, cumple, noCumple, conector;
-	private Collection<Limitante> limitantes;
+	private Collection<Limitante> limitantes1;
+	private Limitante limitante2;
 	/**
 	 * @return the comparador
 	 */
@@ -41,18 +42,7 @@ public class ReglaSimple {
 	public void setCumple(String cumple) {
 		this.cumple = cumple;
 	}
-	/**
-	 * @return the limitantes
-	 */
-	public Collection<Limitante> getLimitantes() {
-		return limitantes;
-	}
-	/**
-	 * @param limitantes the limitantes to set
-	 */
-	public void setLimitantes(Collection<Limitante> limitantes) {
-		this.limitantes = limitantes;
-	}
+	
 	/**
 	 * @return the noCumple
 	 */
@@ -64,6 +54,18 @@ public class ReglaSimple {
 	 */
 	public void setNoCumple(String noCumple) {
 		this.noCumple = noCumple;
+	}
+	public Collection<Limitante> getLimitantes1() {
+		return limitantes1;
+	}
+	public void setLimitantes1(Collection<Limitante> limitantes1) {
+		this.limitantes1 = limitantes1;
+	}
+	public Limitante getLimitante2() {
+		return limitante2;
+	}
+	public void setLimitante2(Limitante limitante2) {
+		this.limitante2 = limitante2;
 	}
 
 }

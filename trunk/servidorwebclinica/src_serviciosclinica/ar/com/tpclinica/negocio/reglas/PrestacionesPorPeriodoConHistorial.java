@@ -1,5 +1,7 @@
 package ar.com.tpclinica.negocio.reglas;
 
+import ar.com.tpclinica.negocio.OrdenMedica;
+
 public class PrestacionesPorPeriodoConHistorial extends Operando {
 	private int periodo;
 	private String prestacion;
@@ -35,6 +37,12 @@ public class PrestacionesPorPeriodoConHistorial extends Operando {
 	public PrestacionesPorPeriodoConHistorial(String presta, int perio) {
 		periodo = perio;
 		prestacion = presta;
+	}
+	
+	public int getValor(OrdenMedica om)
+	{
+		//TODO!!!!
+		return 0;
 	}
 
 }

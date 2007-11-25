@@ -1,5 +1,7 @@
 package ar.com.tpclinica.negocio.reglas;
 
+import ar.com.tpclinica.negocio.OrdenMedica;
+
 public class PrestacionesPorOrden extends Operando {
 	private String prestacion;
 	
@@ -21,4 +23,8 @@ public class PrestacionesPorOrden extends Operando {
 		this.prestacion = prestacion;
 	}
 
+	public int getValor(OrdenMedica om){
+		//TODO!!!
+		return 0;
+	}
 }

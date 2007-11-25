@@ -1,5 +1,11 @@
 package ar.com.tpclinica.negocio.reglas;
 
-public class MesesEnPlan extends Operando {
+import ar.com.tpclinica.negocio.OrdenMedica;
 
+public class MesesEnPlan extends Operando {
+	public int getValor(OrdenMedica om)
+	{
+		//TODO!!!
+		return 0;
+	}
 }
