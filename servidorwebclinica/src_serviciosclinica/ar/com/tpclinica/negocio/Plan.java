@@ -1,12 +1,11 @@
 package ar.com.tpclinica.negocio;
 
-
+import ar.com.tpclinica.negocio.exepciones.OrdenMedicaInvalidaException;
 
 public class Plan {
-	
-	public boolean validarOrden(OrdenMedica ordenMedica) {
-				
-		return true;
+
+	public void validarOrden(OrdenMedica ordenMedica) throws OrdenMedicaInvalidaException{
+
 	}
 
 }
