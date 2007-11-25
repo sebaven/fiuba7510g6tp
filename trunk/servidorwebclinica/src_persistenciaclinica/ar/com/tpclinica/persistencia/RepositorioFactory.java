@@ -11,11 +11,13 @@ public class RepositorioFactory {
 	private static RepositorioImp<Prestacion> repoPrestaciones;
 	private static RepositorioImp<Especialidad> repoEspecialidades;
 	private static RepositorioMedicosImp repoMedicos;
+	private static RepositorioImp<OrdenMedica> repoOrdenes;
 	
 	private RepositorioFactory(){
 		repoPrestaciones = new RepositorioImp<Prestacion>();
 		repoEspecialidades = new RepositorioImp<Especialidad>();
 		repoMedicos = new RepositorioMedicosImp();
+		repoOrdenes = new RepositorioImp<OrdenMedica>();
 	}
 	
 	
@@ -41,5 +43,9 @@ public class RepositorioFactory {
 	
 	public RepositorioMedicosImp getRepositorioMedico(){
 		return repoMedicos;
+	}
+	
+	public RepositorioImp<OrdenMedica> getRepositorioOrdenes(){
+		return repoOrdenes;
 	}
 }
