@@ -30,5 +30,11 @@ public class Tecnico {
 	public void setDireccion(String direccion) {
 		this.direccion = direccion;
 	}
+	public int getNroLegajo() {
+		return nroLegajo;
+	}
+	public void setNroLegajo(int nroLegajo) {
+		this.nroLegajo = nroLegajo;
+	}
 	
 }
