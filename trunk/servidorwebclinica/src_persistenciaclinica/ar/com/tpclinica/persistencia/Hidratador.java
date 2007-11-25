@@ -13,11 +13,11 @@ public class Hidratador {
 			p[i]= new Prestacion();
 		}
 		
-		p[0].setDescripcion("Radiografía");
-		p[1].setDescripcion("Análisis de Sangre");
-		p[2].setDescripcion("Análisis de Orina");
-		p[3].setDescripcion("Tomografía");
-		p[4].setDescripcion("Electro Cardiograma");
+		p[0]=this.createPrestacion("343","Radiografía");
+		p[1]=this.createPrestacion("120", "Análisis de Sangre");
+		p[2]=this.createPrestacion("200","Análisis de Orina");
+		p[3]=this.createPrestacion("201","Tomografía");
+		p[4]=this.createPrestacion("202","Electro Cardiograma");
 		
 		for(int i=0; i<cantidad; i++){
 			p[i].setId(i);
@@ -99,7 +99,16 @@ public class Hidratador {
 		}
 		
 	}
-	
+
+	/**
+	 * Factory method
+	 * @param id
+	 * @param codigo
+	 * @return
+	 */
+	private Prestacion createPrestacion(String codigo,String descripcion){
+		return new Prestacion(codigo,descripcion);
+	}
 	private Paciente crearPaciente(String ap, String nombre, long dni,
 									int id, String mail, String telefono,
 									Plan plan){

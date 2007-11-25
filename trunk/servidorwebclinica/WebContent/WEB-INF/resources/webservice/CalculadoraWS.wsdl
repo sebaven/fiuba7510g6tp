@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://localhost:8080/servidorwebclinica/services/CalculadoraWS" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://localhost:8080/servidorwebclinica/services/CalculadoraWS" xmlns:intf="http://localhost:8080/servidorwebclinica/services/CalculadoraWS" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+
+   <wsdl:message name="restaResponse">
+
+      <wsdl:part name="restaReturn" type="xsd:int"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="sumaResponse">
+
+      <wsdl:part name="sumaReturn" type="xsd:int"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="restaRequest">
+
+      <wsdl:part name="x" type="xsd:int"/>
+
+      <wsdl:part name="y" type="xsd:int"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="divideRequest">
+
+      <wsdl:part name="x" type="xsd:int"/>
+
+      <wsdl:part name="y" type="xsd:int"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="sumaRequest">
+
+      <wsdl:part name="x" type="xsd:int"/>
+
+      <wsdl:part name="y" type="xsd:int"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="divideResponse">
+
+      <wsdl:part name="divideReturn" type="xsd:int"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="multiplicaResponse">
+
+      <wsdl:part name="multiplicaReturn" type="xsd:int"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="multiplicaRequest">
+
+      <wsdl:part name="x" type="xsd:int"/>
+
+      <wsdl:part name="y" type="xsd:int"/>
+
+   </wsdl:message>
+
+   <wsdl:portType name="Calculadora">
+
+      <wsdl:operation name="divide" parameterOrder="x y">
+
+         <wsdl:input message="impl:divideRequest" name="divideRequest"/>
+
+         <wsdl:output message="impl:divideResponse" name="divideResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="suma" parameterOrder="x y">
+
+         <wsdl:input message="impl:sumaRequest" name="sumaRequest"/>
+
+         <wsdl:output message="impl:sumaResponse" name="sumaResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="resta" parameterOrder="x y">
+
+         <wsdl:input message="impl:restaRequest" name="restaRequest"/>
+
+         <wsdl:output message="impl:restaResponse" name="restaResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="multiplica" parameterOrder="x y">
+
+         <wsdl:input message="impl:multiplicaRequest" name="multiplicaRequest"/>
+
+         <wsdl:output message="impl:multiplicaResponse" name="multiplicaResponse"/>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="CalculadoraWSSoapBinding" type="impl:Calculadora">
+
+      <wsdlsoap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="divide">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="divideRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://example.axis.org" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="divideResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost:8080/servidorwebclinica/services/CalculadoraWS" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="suma">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="sumaRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://example.axis.org" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="sumaResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost:8080/servidorwebclinica/services/CalculadoraWS" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="resta">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="restaRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://example.axis.org" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="restaResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost:8080/servidorwebclinica/services/CalculadoraWS" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="multiplica">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="multiplicaRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://example.axis.org" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="multiplicaResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost:8080/servidorwebclinica/services/CalculadoraWS" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="CalculadoraService">
+
+      <wsdl:port binding="impl:CalculadoraWSSoapBinding" name="CalculadoraWS">
+
+         <wsdlsoap:address location="http://localhost:8080/servidorwebclinica/services/CalculadoraWS"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

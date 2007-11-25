@@ -12,11 +12,14 @@ public class RepositorioImp <E> implements Repositorio<E> {
 		coleccion = new ConcurrentHashMap<Integer, E>();
 	}
 
+	/**
+	 * Los elementos del repositorio tiene un id, ese id deberia ser el del mapa ¿no?
+	 */
 	public int add(E o) {
 		coleccion.put(num++, o);
 		return num-1;
 	}
-
+	
 	public void borrar(E o) {
 		coleccion.values().remove(o);
 	}
