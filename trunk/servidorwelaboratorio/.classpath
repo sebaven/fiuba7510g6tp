@@ -2,9 +2,6 @@
 <classpath>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="src" path="src_serviciosremotoslaboratorio"/>
-	<classpathentry kind="src" path="src_persistencialaboratorio"/>
-	<classpathentry kind="src" path="src_servicioslaboratorio"/>
 	<classpathentry kind="src" path="src_servidorweblaboratorio"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v6.0"/>
