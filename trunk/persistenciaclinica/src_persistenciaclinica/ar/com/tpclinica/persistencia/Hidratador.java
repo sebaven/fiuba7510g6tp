@@ -1,6 +1,7 @@
 package ar.com.tpclinica.persistencia;
 
 import ar.com.tpclinica.negocio.*;
+import ar.com.tpclinica.persistencia.excepciones.ClaveNoExisteExcepcion;
 
 public class Hidratador {
 	
@@ -25,8 +26,11 @@ public class Hidratador {
 		}
 	}
 	
-	/** Llena con datos fijos un Repositorio de Especialidades */
-	public void hidratarEspecialidades(Repositorio<Especialidad> repoEspecialidades){
+	/** Llena con datos fijos un Repositorio de Especialidades 
+	 * @throws ClaveNoExisteExcepcion 
+	 * @throws ClaveNoExisteExcepcion 
+	 * */
+	public void hidratarEspecialidades(Repositorio<Especialidad> repoEspecialidades) throws ClaveNoExisteExcepcion{
 		
 		int cantidad=3;
 		Especialidad e[] = new Especialidad[cantidad];
@@ -34,6 +38,7 @@ public class Hidratador {
 		
 		for(int i=0; i<cantidad; i++){
 			e[i]= new Especialidad();
+			e[i].setCodigo(i);
 		}
 		
 		e[0].setNombre("Pediatría");
@@ -55,8 +60,8 @@ public class Hidratador {
 		}
 	}
 	
-	public void hidratarMedicos(RepositorioMedicosImp repo){
-		int cantidad = 4;
+	public void hidratarMedicos(RepositorioMedicosImp repo) throws ClaveNoExisteExcepcion{
+		int cantidad = 3;
 		Repositorio<Especialidad> repEsp = RepositoriosProvider.getInstancia().getRepositorioEspecialidad();
 		
 		Medico m[] = new Medico[cantidad];
@@ -79,7 +84,7 @@ public class Hidratador {
 		}
 	}
 	
-	public void hidratarOrdenes(Repositorio<OrdenMedica> repo){
+	public void hidratarOrdenes(Repositorio<OrdenMedica> repo) throws ClaveNoExisteExcepcion{
 		int cantidad = 3;
 		OrdenMedica om[] = new OrdenMedica[cantidad];
 		
@@ -150,34 +155,7 @@ public class Hidratador {
 		it6.setDescripcion("Computada de craneo");
 		om[2].agregarItem(it6);
 		
-		
 	
-		
-		
-		
-		
-		
-		
-		Repositorio<Especialidad> repEsp = RepositoriosProvider.getInstancia().getRepositorioEspecialidad();
-		
-		Medico m[] = new Medico[cantidad];
-		
-		for (int i=0; i<cantidad; i++){
-			m[i] = new Medico();
-		}
-		
-		m[0].setNombre("Mariano"); m[0].setApellido("Sanchez");
-		m[0].setId(5000); m[0].setEspecialidad(repEsp.get(0));
-		
-		m[1].setNombre("Emiliano"); m[1].setApellido("Perez");
-		m[1].setId(5001); m[1].setEspecialidad(repEsp.get(1));
-		
-		m[2].setNombre("Laura"); m[2].setApellido("Lopez");
-		m[2].setId(5002); m[2].setEspecialidad(repEsp.get(2));		
-		
-		for (int i=0; i<cantidad; i++){
-			//repo.modify(m[i].getId(), m[i]);
-		}
 	}
 	
 	public void hidratarPacientes(Repositorio<Paciente> repo){

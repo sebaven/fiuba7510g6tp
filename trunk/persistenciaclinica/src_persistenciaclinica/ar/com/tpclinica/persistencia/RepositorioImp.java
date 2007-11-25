@@ -2,6 +2,7 @@ package ar.com.tpclinica.persistencia;
 
 import java.util.Collection;
 import java.util.concurrent.ConcurrentHashMap;
+import ar.com.tpclinica.persistencia.excepciones.*;
 
 public class RepositorioImp <E> implements Repositorio<E> {
 
@@ -24,7 +25,10 @@ public class RepositorioImp <E> implements Repositorio<E> {
 		return num-1;
 	}
 	
-	public void borrar(E o) {
+	public void borrar(E o) throws ObjetoNoExisteExcepcion{
+		if (!existe(o))
+			throw new ObjetoNoExisteExcepcion();
+		
 		coleccion.values().remove(o);
 	}
 
@@ -32,8 +36,21 @@ public class RepositorioImp <E> implements Repositorio<E> {
 		return coleccion.values().contains(o);
 	}
 
-	public E get(int id) {
+	public void print(){
+		for(Integer i:coleccion.keySet()){
+			System.out.println(i);
+		}
+	}
+	
+	public E get(int id) throws ClaveNoExisteExcepcion{
+		
+		
+		
+		if (!coleccion.keySet().contains(id))
+			throw new ClaveNoExisteExcepcion();
+		
 		return coleccion.get(id);
+		
 	}
 
 	public Collection<E> getAll() {

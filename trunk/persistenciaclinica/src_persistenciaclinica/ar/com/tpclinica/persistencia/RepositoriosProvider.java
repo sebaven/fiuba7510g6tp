@@ -1,6 +1,7 @@
 package ar.com.tpclinica.persistencia;
 
 import ar.com.tpclinica.negocio.*;
+import ar.com.tpclinica.persistencia.excepciones.*;
 
 
 /*	Esta clase es singleton */ 
@@ -26,15 +27,20 @@ public class RepositoriosProvider {
 	
 	
 	
-	public static RepositoriosProvider getInstancia(){
+	public static RepositoriosProvider getInstancia() {
 		if (_instancia==null){ 
 			_instancia = new RepositoriosProvider();
 			Hidratador h = new Hidratador();
 			h.hidratarPrestaciones(repoPrestaciones);
-			h.hidratarEspecialidades(repoEspecialidades);
-			h.hidratarMedicos(repoMedicos);
-			h.hidratarOrdenes(repoOrdenes);
-			h.hidratarPacientes(repoPacientes);
+			try{
+				h.hidratarEspecialidades(repoEspecialidades);
+				h.hidratarMedicos(repoMedicos);
+				h.hidratarPacientes(repoPacientes);
+				h.hidratarOrdenes(repoOrdenes);
+				
+			}catch(Exception e){System.out.println("Se me pincho");}
+			
+			
 		}
 		return _instancia;
 	}
