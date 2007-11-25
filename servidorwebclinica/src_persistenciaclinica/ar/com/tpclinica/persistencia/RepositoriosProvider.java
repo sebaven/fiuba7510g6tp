@@ -48,7 +48,7 @@ public class RepositoriosProvider {
 		return repoMedicos;
 	}
 	
-	public RepositorioOrdenesImp getRepositorioOrdenes(){
+	public RepositorioOrdenes getRepositorioOrdenes(){
 		return repoOrdenes;
 	}
 	
