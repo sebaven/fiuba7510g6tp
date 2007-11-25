@@ -1,5 +1,6 @@
 package ar.com.tpclinica.negocio;
 
+import java.util.LinkedList;
 import java.util.List;
 
 public class OrdenMedica {
@@ -17,6 +18,10 @@ public class OrdenMedica {
 	private Medico medico;
 
 	private List<OrdenMedicaItem> items;
+	
+	public OrdenMedica(){
+		items = new LinkedList<OrdenMedicaItem>();
+	}
 
 	public void cambiarEstado(OrdenMedicaEstado nuevoEstado) {
 		estado = nuevoEstado;
