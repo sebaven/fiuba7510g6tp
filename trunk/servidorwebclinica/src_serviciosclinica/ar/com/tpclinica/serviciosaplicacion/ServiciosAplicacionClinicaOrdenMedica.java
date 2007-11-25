@@ -14,15 +14,23 @@ public class ServiciosAplicacionClinicaOrdenMedica extends
 	private Repositorio<OrdenMedica> respositorioOrdenesMedicas;
 
 	public void autorizarOrdenMedica(int idOrdenMedica) {
-		RepositorioOrdenes repositorioOrdenes = RepositoriosProvider.getInstancia().getRepositorioOrdenes();
+		RepositorioOrdenes repositorioOrdenes = RepositoriosProvider
+				.getInstancia().getRepositorioOrdenes();
 		OrdenMedica ordenMedica = repositorioOrdenes.get(idOrdenMedica);
-		ordenMedica.cambiarEstado(new OrdenMedicaEstado(OrdenMedicaEstado.AUTORIZADA));
+		ordenMedica.cambiarEstado(new OrdenMedicaEstado(
+				OrdenMedicaEstado.AUTORIZADA));
 		repositorioOrdenes.modify(ordenMedica.getId(), ordenMedica);
 
 	}
 
 	public void cancelarOrdenMedica(int idOrdenMedica) {
-		//TODO
+		RepositorioOrdenes repositorioOrdenes = RepositoriosProvider
+				.getInstancia().getRepositorioOrdenes();
+		OrdenMedica ordenMedicaACancelar = repositorioOrdenes
+				.get(idOrdenMedica);
+		ordenMedicaACancelar.setEstado(new OrdenMedicaEstado(
+				OrdenMedicaEstado.CANCELAR_ORDEN));
+		repositorioOrdenes.modify(idOrdenMedica, ordenMedicaACancelar);
 	}
 
 	public OrdenMedica getOrdenMedica(int idOrdenMedica) {
@@ -38,13 +46,10 @@ public class ServiciosAplicacionClinicaOrdenMedica extends
 
 	}
 
-	public void asentarOrdenMedica(int idOrdenMedica) {
-		//TODO
-	}
-
 	public void agregarDiagnosticoAOrdenMedica(int idOrdenMedica,
 			String diagnostico) {
-		Repositorio<OrdenMedica> repositorioOrdenes = RepositoriosProvider.getInstancia().getRepositorioOrdenes();
+		Repositorio<OrdenMedica> repositorioOrdenes = RepositoriosProvider
+				.getInstancia().getRepositorioOrdenes();
 		OrdenMedica ordenMedica = repositorioOrdenes.get(idOrdenMedica);
 		ordenMedica.setDiagnostico(diagnostico);
 		repositorioOrdenes.modify(idOrdenMedica, ordenMedica);
