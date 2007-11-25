@@ -9,6 +9,14 @@ import ar.com.tpclinica.negocio.reglas.Operacion;
 public class Plan {
 	private  Operacion operacion;
 	
+	public Operacion getOperacion() {
+		return operacion;
+	}
+
+	public void setOperacion(Operacion operacion) {
+		this.operacion = operacion;
+	}
+
 	public ar.com.tpclinica.negocio.reglas.Resultado validarOrden(OrdenMedica ordenMedica) throws OrdenMedicaInvalidaException{
 		return operacion.aplicar(ordenMedica);
 		
