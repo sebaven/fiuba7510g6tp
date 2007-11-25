@@ -90,9 +90,13 @@ public class Hidratador {
 		Plan plan = new Plan();
 		p[0] = crearPaciente("Gonzalez", "Gonzalo", 30521129, 1130, "gg@mail.com", "4444-5454", plan);
 		p[1] = crearPaciente("Ramirez", "Ramiro", 35641612, 1135, "rr@mail.com", "4452-7878", plan);
-		p[2] = crearPaciente("Gonzalez", "Ramiro", 28546548, 1211, "ss@mail.com", "4999-5454", plan);
+		p[2] = crearPaciente("Gonzalez", "Ramiro", 28546548, 1211, "rg@mail.com", "4999-5454", plan);
 		p[3] = crearPaciente("Martinez", "Martin", 21333447, 1251, "mm@mail.com", "4049-7894", plan);
-		p[3] = crearPaciente("Rodriguez", "Rodrigo", 3153478, 1255, "rod@mail.com", "5059-1234", plan);
+		p[4] = crearPaciente("Rodriguez", "Rodrigo", 3153478, 1255, "rod@mail.com", "5059-1234", plan);
+		
+		for (int i=0; i<cantidad; i++){
+			repo.modify(p[i].getId(), p[i]);
+		}
 		
 	}
 	
