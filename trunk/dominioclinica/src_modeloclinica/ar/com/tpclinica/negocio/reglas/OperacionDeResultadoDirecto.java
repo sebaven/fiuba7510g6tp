@@ -26,5 +26,12 @@ public class OperacionDeResultadoDirecto implements Operacion {
 	public Resultado aplicar(OrdenMedica om) {
 		return this.resultado;
 	}
+	@Override
+	public boolean equals(Object obj) {
+		OperacionDeResultadoDirecto o = (OperacionDeResultadoDirecto)obj;
+		if (o.getResultado().getResultado().compareTo(this.resultado.getResultado())==0)
+			return true;
+		else return false;
+	}
 
 }

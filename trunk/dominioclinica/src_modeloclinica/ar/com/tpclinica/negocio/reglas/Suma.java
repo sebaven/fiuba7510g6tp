@@ -24,4 +24,12 @@ public class Suma extends OperacionConOperandos {
 		this.op.setPrimerOperando(new Cantidad(this.getPrimerOperando().getValor(om) + this.getSegundoOperando().getValor(om)));
 		return this.op.aplicar(om);
 	}
+	@Override
+	public boolean equals(Object obj) {
+		Suma o = (Suma)obj;
+		OrdenMedica om = null;
+		if (o.getOp().equals(this.op) && (o.getPrimerOperando().getValor(om)==this.getPrimerOperando().getValor(om)) && (o.getSegundoOperando().getValor(om)==this.getSegundoOperando().getValor(om)))
+			return true;
+		else return false;
+	}
 }

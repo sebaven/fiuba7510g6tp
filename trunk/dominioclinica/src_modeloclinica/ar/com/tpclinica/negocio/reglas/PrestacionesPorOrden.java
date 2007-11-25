@@ -3,7 +3,7 @@ package ar.com.tpclinica.negocio.reglas;
 import ar.com.tpclinica.negocio.OrdenMedica;
 
 public class PrestacionesPorOrden extends Operando {
-	private String prestacion;
+private String prestacion;
 	
 	public PrestacionesPorOrden(String presta) {
 		prestacion = presta;
@@ -26,5 +26,16 @@ public class PrestacionesPorOrden extends Operando {
 	public int getValor(OrdenMedica om){
 		//TODO!!!
 		return 0;
+	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		PrestacionesPorOrden o = (PrestacionesPorOrden)obj;
+		OrdenMedica om = null;
+		
+		if (o.getValor(om)==this.getValor(om))
+			return true;
+		else return false;
+	
 	}
 }

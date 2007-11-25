@@ -1,6 +1,6 @@
 package ar.com.tpclinica.negocio.reglas;
 
-import ar.com.tpclinica.negocio.OrdenMedica;;
+import ar.com.tpclinica.negocio.OrdenMedica;
 
 public class Cantidad extends Operando {
 	private int valor;
@@ -21,6 +21,14 @@ public class Cantidad extends Operando {
 
 	public Cantidad(int cantidad) {
 		valor = cantidad;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		OrdenMedica om = null;
+		if (((Operando)obj).getValor(om)==valor)
+			return true;
+		else return false;
 	}
 
 }

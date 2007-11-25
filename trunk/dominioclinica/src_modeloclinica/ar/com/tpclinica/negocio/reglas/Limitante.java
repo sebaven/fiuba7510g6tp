@@ -51,7 +51,6 @@ public class Limitante {
 	public void setValor(String valor) {
 		this.valor = valor;
 	}
-
 }
 
 

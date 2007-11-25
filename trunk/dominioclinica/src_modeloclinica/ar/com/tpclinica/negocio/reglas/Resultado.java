@@ -1,7 +1,7 @@
 package ar.com.tpclinica.negocio.reglas;
 
 public class Resultado {
-	public String resultado;
+public String resultado;
 	
 	public Resultado (String res){
 		this.resultado = res;
@@ -20,5 +20,4 @@ public class Resultado {
 	public void setResultado(String resultado) {
 		this.resultado = resultado;
 	}
-
 }

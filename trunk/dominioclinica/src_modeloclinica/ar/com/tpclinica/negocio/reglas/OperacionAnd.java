@@ -3,7 +3,7 @@ package ar.com.tpclinica.negocio.reglas;
 import ar.com.tpclinica.negocio.OrdenMedica;
 
 public class OperacionAnd implements Operacion {
-	private Operacion primerOperacion, segundaOperacion;
+private Operacion primerOperacion, segundaOperacion;
 	
 	/**
 	 * @return the primerOperacion
@@ -54,5 +54,11 @@ public class OperacionAnd implements Operacion {
 		retVal = new Resultado(resultadoFinal);
 		return retVal;
 	}
-
+	@Override
+	public boolean equals(Object obj) {
+		OperacionAnd o = (OperacionAnd)obj;
+		if ((o.getPrimerOperacion().equals(this.primerOperacion)) && (o.getSegundaOperacion().equals(this.segundaOperacion)))
+			return true;
+		else return false;
+	}
 }

@@ -44,5 +44,13 @@ public class PrestacionesPorPeriodoConHistorial extends Operando {
 		//TODO!!!!
 		return 0;
 	}
+	
+	@Override
+	public boolean equals(Object obj) {
+		PrestacionesPorPeriodoConHistorial o = (PrestacionesPorPeriodoConHistorial)obj;
+		if ((o.getPrestacion().compareTo(this.prestacion)==0) && (o.getPeriodo() == this.periodo))
+			return true;
+		else return false;
+	}
 
 }
