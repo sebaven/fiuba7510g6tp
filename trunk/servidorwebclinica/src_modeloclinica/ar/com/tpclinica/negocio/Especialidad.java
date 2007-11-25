@@ -3,22 +3,24 @@ package ar.com.tpclinica.negocio;
 import java.util.Collection;
 import java.util.LinkedList;
 
-import ar.com.tpclinica.persistencia.*;
 public class Especialidad {
 	private int codigo;
+
 	private String nombre;
+
 	private String descripcion;
+
 	private Collection<Prestacion> prestaciones;
-	
-	public Especialidad(){
+
+	public Especialidad() {
 		prestaciones = new LinkedList<Prestacion>();
 	}
-	
+
 	public Collection<Prestacion> getPrestaciones() {
-	
-	return prestaciones;
+
+		return prestaciones;
 	}
-	
+
 	/**
 	 * @return the codigo
 	 */
@@ -27,7 +29,8 @@ public class Especialidad {
 	}
 
 	/**
-	 * @param codigo the codigo to set
+	 * @param codigo
+	 *            the codigo to set
 	 */
 	public void setCodigo(int codigo) {
 		this.codigo = codigo;
@@ -41,7 +44,8 @@ public class Especialidad {
 	}
 
 	/**
-	 * @param descripcion the descripcion to set
+	 * @param descripcion
+	 *            the descripcion to set
 	 */
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
@@ -55,24 +59,27 @@ public class Especialidad {
 	}
 
 	/**
-	 * @param nombre the nombre to set
+	 * @param nombre
+	 *            the nombre to set
 	 */
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
 
 	/**
-	 * @param prestaciones the prestaciones to set
+	 * @param prestaciones
+	 *            the prestaciones to set
 	 */
 	public void setPrestaciones(Collection<Prestacion> prestaciones) {
 		this.prestaciones = prestaciones;
 	}
-	
-	public void agregarPrestacion(Prestacion p){
+
+	public void agregarPrestacion(Prestacion p) {
 		prestaciones.add(p);
 	}
-	public void borrarPrestacion(Prestacion p){
-	
+
+	public void borrarPrestacion(Prestacion p) {
+
 		prestaciones.remove(p);
 	}
 }
