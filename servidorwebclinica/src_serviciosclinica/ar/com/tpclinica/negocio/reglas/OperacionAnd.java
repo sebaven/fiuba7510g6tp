@@ -39,8 +39,20 @@ public class OperacionAnd implements Operacion {
 	}
 
 	public Resultado aplicar(OrdenMedica om) {
-		// TODO Auto-generated method stub
-		return null;
+		String resultadoPrimerOperacion,resultadoSegundaOperacion;
+		Resultado retVal;
+		String resultadoFinal;
+		resultadoPrimerOperacion = this.primerOperacion.aplicar(om).getResultado();
+		resultadoSegundaOperacion = this.segundaOperacion.aplicar(om).getResultado();
+		if (resultadoPrimerOperacion.compareTo("Falso")==0 || resultadoSegundaOperacion.compareTo("Falso")==0)
+			resultadoFinal = "Falso";
+		else
+			if (resultadoPrimerOperacion.compareTo("Autorizar")==0 || resultadoSegundaOperacion.compareTo("Autorizar")==0)
+				resultadoFinal = "Autorizar";
+			else
+				resultadoFinal = "Verdadero";
+		retVal = new Resultado(resultadoFinal);
+		return retVal;
 	}
 
 }

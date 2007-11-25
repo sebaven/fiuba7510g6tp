@@ -1,10 +1,8 @@
 package ar.com.tpclinica.negocio.reglas;
 
-import java.util.Collection;
-
 public class ReglaDePrestacion {
 	private String prestacion;
-	private Collection<ReglaSimple> reglas;
+	private ReglaSimple regla1,regla2;
 	/**
 	 * @return the prestacion
 	 */
@@ -17,17 +15,17 @@ public class ReglaDePrestacion {
 	public void setPrestacion(String prestacion) {
 		this.prestacion = prestacion;
 	}
-	/**
-	 * @return the reglas
-	 */
-	public Collection<ReglaSimple> getReglas() {
-		return reglas;
+	public ReglaSimple getRegla1() {
+		return regla1;
 	}
-	/**
-	 * @param reglas the reglas to set
-	 */
-	public void setReglas(Collection<ReglaSimple> reglas) {
-		this.reglas = reglas;
+	public void setRegla1(ReglaSimple regla1) {
+		this.regla1 = regla1;
+	}
+	public ReglaSimple getRegla2() {
+		return regla2;
+	}
+	public void setRegla2(ReglaSimple regla2) {
+		this.regla2 = regla2;
 	}
 	
 }
