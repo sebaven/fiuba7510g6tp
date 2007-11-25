@@ -1,5 +1,8 @@
 package ar.com.tpclinica.persistencia.queries;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+
 import org.apache.commons.collections.Predicate;
 
 /**
@@ -13,18 +16,36 @@ public class PropertyPredicate implements Predicate {
 	 * Valor que tiene que tener el objeto en cuestion
 	 */
 	private Object value;
+	private String propertyName;
 	
-	public PropertyPredicate(Object valueToMacth,String property){
+	public PropertyPredicate(Object valueToMacth,String propertyName){
 		this.value=valueToMacth;
+		this.propertyName=propertyName;
 	}
 	
-	public boolean evaluate(Object arg0) {
-//        
-//		Method method = o.getClass().getMethod("setColor", new Class[] { Color.class });
-//
-//        method.invoke(o, new Object[] { color });
-		
-		return false;
+	public boolean evaluate(Object objectToEvaluate) {
+		boolean result=false;
+
+        try {
+        	Method method = objectToEvaluate.getClass().getMethod(this.propertyName);
+			result= method.invoke(objectToEvaluate).equals(this.value);
+		} catch (IllegalArgumentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (InvocationTargetException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SecurityException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (NoSuchMethodException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return result;
 	}
 	
 
