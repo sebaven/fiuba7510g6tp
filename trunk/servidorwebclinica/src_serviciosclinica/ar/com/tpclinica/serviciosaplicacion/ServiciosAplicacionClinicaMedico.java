@@ -4,56 +4,38 @@ import java.util.Collection;
 
 import ar.com.tpclinica.negocio.Especialidad;
 import ar.com.tpclinica.negocio.Medico;
-import ar.com.tpclinica.persistencia.Repositorio;
-import ar.com.tpclinica.persistencia.RepositorioMedicos;
+import ar.com.tpclinica.persistencia.RepositoriosProvider;
 
 public class ServiciosAplicacionClinicaMedico extends
 		ServiciosAplicacionClinica {
-	private RepositorioMedicos repositorioMedicos;
-	private Repositorio<Especialidad> repositorioEspecialidades;
-	
+
 	public Medico getMedico(int idMedico) {
-		return repositorioMedicos.get(idMedico);
+		return RepositoriosProvider.getInstancia().getRepositorioMedico().get(
+				idMedico);
 	}
-	public Medico crearNuevoMedico(String nombre, String apellido, int idEspecialidad) {
-		return null;
+
+	public void agregarNuevoMedico(Medico medicoAAgregar) {
+		RepositoriosProvider.getInstancia().getRepositorioMedico().add(
+				medicoAAgregar);
 	}
+
 	public void borrarMedico(int idMedico) {
-		repositorioMedicos.borrar(getMedico(idMedico));
+		RepositoriosProvider.getInstancia().getRepositorioMedico().borrar(
+				getMedico(idMedico));
 	}
-	public void modificarMedico(int idMedico, String nombre, String apellido, int idEspecialidad) {
-		
+
+	public void modificarMedico(int idMedico, Medico medicoAModificar) {
+		RepositoriosProvider.getInstancia().getRepositorioMedico().modify(
+				idMedico, medicoAModificar);
 	}
+
 	public Collection<Medico> getMedicos() {
-		return repositorioMedicos.getAll();
+		return RepositoriosProvider.getInstancia().getRepositorioMedico()
+				.getAll();
 	}
+
 	public Collection<Especialidad> getEspecialidades() {
-		return repositorioEspecialidades.getAll();
-	}
-	/**
-	 * @return the repositorioEspecialidades
-	 */
-	public Repositorio<Especialidad> getRepositorioEspecialidades() {
-		return repositorioEspecialidades;
-	}
-	/**
-	 * @param repositorioEspecialidades the repositorioEspecialidades to set
-	 */
-	public void setRepositorioEspecialidades(
-			Repositorio<Especialidad> repositorioEspecialidades) {
-		this.repositorioEspecialidades = repositorioEspecialidades;
-	}
-	/**
-	 * @return the repositorioMedicos
-	 */
-	public RepositorioMedicos getRepositorioMedicos() {
-		return repositorioMedicos;
-	}
-	/**
-	 * @param repositorioMedicos the repositorioMedicos to set
-	 */
-	public void setRepositorioMedicos(RepositorioMedicos repositorioMedicos) {
-		this.repositorioMedicos = repositorioMedicos;
+		return RepositoriosProvider.getInstancia().getRepositorioEspecialidad().getAll();
 	}
 
 }
