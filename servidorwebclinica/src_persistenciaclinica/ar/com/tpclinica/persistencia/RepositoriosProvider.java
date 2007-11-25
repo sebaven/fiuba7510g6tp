@@ -6,7 +6,7 @@ import ar.com.tpclinica.negocio.*;
 /*	Esta clase es singleton */ 
 public class RepositoriosProvider {
 	
-	static RepositoriosProvider _instancia = null;
+	private static RepositoriosProvider _instancia = null;
 	
 	private static RepositorioImp<Prestacion> repoPrestaciones;
 	private static RepositorioImp<Especialidad> repoEspecialidades;
@@ -51,7 +51,7 @@ public class RepositoriosProvider {
 		return repoMedicos;
 	}
 	
-	public Repositorio<OrdenMedica> getRepositorioOrdenes(){
+	public RepositorioOrdenes getRepositorioOrdenes(){
 		return repoOrdenes;
 	}
 	

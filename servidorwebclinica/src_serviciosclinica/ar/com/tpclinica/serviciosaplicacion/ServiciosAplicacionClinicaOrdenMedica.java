@@ -14,7 +14,7 @@ public class ServiciosAplicacionClinicaOrdenMedica extends
 	private Repositorio<OrdenMedica> respositorioOrdenesMedicas;
 
 	public void autorizarOrdenMedica(int idOrdenMedica) {
-		RepositorioOrdenes repositorioOrdenes = (RepositorioOrdenes) RepositoriosProvider.getInstancia().getRepositorioOrdenes();
+		RepositorioOrdenes repositorioOrdenes = RepositoriosProvider.getInstancia().getRepositorioOrdenes();
 		OrdenMedica ordenMedica = repositorioOrdenes.get(idOrdenMedica);
 		OrdenMedicaEstado ordenMedicaEstado = new OrdenMedicaEstado();
 		ordenMedicaEstado.setDescripcion("Autorizada");

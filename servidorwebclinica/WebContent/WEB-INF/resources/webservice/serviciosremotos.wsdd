@@ -1,0 +1,31 @@
+<deployment 
+        xmlns="http://xml.apache.org/axis/wsdd/"
+        xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+   <!--  
+         Definimos el servicio Web a activar: 
+         Nombre y tipo de Servicio Web. 
+         RPC Llamadas a procedimientos remotos con ejecución síncrono  
+   -->
+
+   <service name="ServiciosRemotosCParaLaboratorio" provider="java:RPC">
+
+        <!-- Nombre de la clase que implementa los métodos expuestos -->
+       <parameter name="className" value="ar.com.tpclinica.servicioremoto.ServiciosRemotosCParaLaboratorio"/>
+        
+        <!-- Expone todos los métodos como visibles desde el exterior -->
+       <parameter name="allowedMethods" value="*"/>     
+ 
+    	<!--  class pakg -->
+      <beanMapping qname="myNS:ResultadoOrdenMedicaDTO" xmlns:myNS="urn:DTORespuestaOrden"
+       languageSpecificType="java:ar.com.tpclinica.servicioremoto.orden.ResultadoOrdenMedicaDTO"/>
+      
+       <beanMapping qname="myNS:ResultadoItemDTO" xmlns:myNS="urn:DTORespuestaOrden"
+       languageSpecificType="java:ar.com.tpclinica.servicioremoto.orden.ResultadoItemDTO"/>
+       
+       <arrayMapping qname="ns:stringArray" xmlns:ns="StringArray" type="java:java.lang.String[]" innerType="ns2:String"
+       xmlns:ns2="StringArray2"
+             encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/> 
+
+   </service>
+</deployment>

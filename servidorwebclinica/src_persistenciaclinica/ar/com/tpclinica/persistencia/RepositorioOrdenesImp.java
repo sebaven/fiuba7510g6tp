@@ -1,44 +1,30 @@
 package ar.com.tpclinica.persistencia;
 
-import java.util.Collection;
+import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.collections.Predicate;
 
 import ar.com.tpclinica.negocio.OrdenMedica;
 
-class RepositorioOrdenesImp implements RepositorioOrdenes {
+class RepositorioOrdenesImp extends RepositorioImp<OrdenMedica> implements RepositorioOrdenes {
 
-	public OrdenMedica getPorNroOrden(int nroOrden) {
-		// TODO Auto-generated method stub
-		return null;
+	/**
+	 * NO es lo mismo un id que un nroOrden, no es lo mismo un codigoPrestacion que un id.
+	 * 
+	 */
+	public OrdenMedica getPorNroOrden(final int nroOrden) {
+		
+		return (OrdenMedica) CollectionUtils.find(this.getAll(),new Predicate(){
+
+			public boolean evaluate(Object arg0) {
+				return ((OrdenMedica)arg0).getId()==nroOrden;
+			}
+			
+		});
 	}
 
-	public int add(OrdenMedica o) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	public void borrar(OrdenMedica o) {
-		// TODO Auto-generated method stub
-
-	}
-
-	public boolean existe(OrdenMedica o) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	public OrdenMedica get(int id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public Collection<OrdenMedica> getAll() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public void modify(int clave, OrdenMedica o) {
-		// TODO Auto-generated method stub
-
-	}
-
+	
+	
+	
+	
+	
 }

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://localhost:8080/servidorwebclinica/services/ServiciosRemotosCParaLaboratorio" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://localhost:8080/servidorwebclinica/services/ServiciosRemotosCParaLaboratorio" xmlns:intf="http://localhost:8080/servidorwebclinica/services/ServiciosRemotosCParaLaboratorio" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns1="urn:DTORespuestaOrden" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema targetNamespace="urn:DTORespuestaOrden" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://localhost:8080/servidorwebclinica/services/ServiciosRemotosCParaLaboratorio"/>
+   <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+   <complexType name="ResultadoItemDTO">
+    <sequence>
+     <element name="codigoPrestacion" nillable="true" type="xsd:string"/>
+     <element name="descripcion" nillable="true" type="xsd:string"/>
+     <element name="fecha" nillable="true" type="xsd:dateTime"/>
+     <element name="tipo" type="xsd:int"/>
+    </sequence>
+   </complexType>
+   <complexType name="ResultadoOrdenMedicaDTO">
+    <sequence>
+     <element name="legajoTecnico" type="xsd:int"/>
+     <element name="nroOrden" type="xsd:int"/>
+     <element name="resultadoItem" nillable="true" type="impl:ArrayOf_tns1_ResultadoItemDTO"/>
+    </sequence>
+   </complexType>
+  </schema>
+  <schema targetNamespace="http://localhost:8080/servidorwebclinica/services/ServiciosRemotosCParaLaboratorio" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="urn:DTORespuestaOrden"/>
+   <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+   <complexType name="ArrayOf_tns1_ResultadoItemDTO">
+    <complexContent>
+     <restriction base="soapenc:Array">
+      <attribute ref="soapenc:arrayType" wsdl:arrayType="tns1:ResultadoItemDTO[]"/>
+     </restriction>
+    </complexContent>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="recibirResultadoOrdenMedicaResponse">
+
+   </wsdl:message>
+
+   <wsdl:message name="recibirResultadoOrdenMedicaRequest">
+
+      <wsdl:part name="resultadoOrdenMedicaDTO" type="tns1:ResultadoOrdenMedicaDTO"/>
+
+   </wsdl:message>
+
+   <wsdl:portType name="ServiciosRemotosCParaLaboratorio">
+
+      <wsdl:operation name="recibirResultadoOrdenMedica" parameterOrder="resultadoOrdenMedicaDTO">
+
+         <wsdl:input message="impl:recibirResultadoOrdenMedicaRequest" name="recibirResultadoOrdenMedicaRequest"/>
+
+         <wsdl:output message="impl:recibirResultadoOrdenMedicaResponse" name="recibirResultadoOrdenMedicaResponse"/>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="ServiciosRemotosCParaLaboratorioSoapBinding" type="impl:ServiciosRemotosCParaLaboratorio">
+
+      <wsdlsoap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="recibirResultadoOrdenMedica">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="recibirResultadoOrdenMedicaRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://servicioremoto.tpclinica.com.ar" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="recibirResultadoOrdenMedicaResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost:8080/servidorwebclinica/services/ServiciosRemotosCParaLaboratorio" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="ServiciosRemotosCParaLaboratorioService">
+
+      <wsdl:port binding="impl:ServiciosRemotosCParaLaboratorioSoapBinding" name="ServiciosRemotosCParaLaboratorio">
+
+         <wsdlsoap:address location="http://localhost:8080/servidorwebclinica/services/ServiciosRemotosCParaLaboratorio"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
