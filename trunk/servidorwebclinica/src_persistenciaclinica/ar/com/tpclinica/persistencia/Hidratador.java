@@ -82,4 +82,31 @@ public class Hidratador {
 	public void hidratarOrdenes(Repositorio<OrdenMedica> repo){
 		
 	}
+	
+	public void hidratarPacientes(Repositorio<Paciente> repo){
+		int cantidad = 5;
+		Paciente p[] = new Paciente[cantidad];
+		
+		Plan plan = new Plan();
+		p[0] = crearPaciente("Gonzalez", "Gonzalo", 30521129, 1130, "gg@mail.com", "4444-5454", plan);
+		p[1] = crearPaciente("Ramirez", "Ramiro", 35641612, 1135, "rr@mail.com", "4452-7878", plan);
+		p[2] = crearPaciente("Gonzalez", "Ramiro", 28546548, 1211, "ss@mail.com", "4999-5454", plan);
+		p[3] = crearPaciente("Martinez", "Martin", 21333447, 1251, "mm@mail.com", "4049-7894", plan);
+		p[3] = crearPaciente("Rodriguez", "Rodrigo", 3153478, 1255, "rod@mail.com", "5059-1234", plan);
+		
+	}
+	
+	private Paciente crearPaciente(String ap, String nombre, long dni,
+									int id, String mail, String telefono,
+									Plan plan){
+		Paciente p = new Paciente();
+		p.setApellido(ap);
+		p.setDni(dni);
+		p.setId(id);
+		p.setMail(mail);
+		p.setNombre(nombre);
+		p.setPlan(plan);
+		p.setTelefono(telefono);
+		return p;
+	}
 }
