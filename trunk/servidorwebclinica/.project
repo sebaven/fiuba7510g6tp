@@ -3,6 +3,9 @@
 	<name>servidorwebclinica</name>
 	<comment></comment>
 	<projects>
+		<project>serviciosclinica</project>
+		<project>dominioclinica</project>
+		<project>persistenciaclinica</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
