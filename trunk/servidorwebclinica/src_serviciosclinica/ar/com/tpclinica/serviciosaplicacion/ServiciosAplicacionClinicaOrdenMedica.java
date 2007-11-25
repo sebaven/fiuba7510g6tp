@@ -22,7 +22,7 @@ public class ServiciosAplicacionClinicaOrdenMedica extends
 	}
 
 	public void cancelarOrdenMedica(int idOrdenMedica) {
-
+		//TODO
 	}
 
 	public OrdenMedica getOrdenMedica(int idOrdenMedica) {
@@ -39,12 +39,15 @@ public class ServiciosAplicacionClinicaOrdenMedica extends
 	}
 
 	public void asentarOrdenMedica(int idOrdenMedica) {
-
+		//TODO
 	}
 
 	public void agregarDiagnosticoAOrdenMedica(int idOrdenMedica,
 			String diagnostico) {
-
+		Repositorio<OrdenMedica> repositorioOrdenes = RepositoriosProvider.getInstancia().getRepositorioOrdenes();
+		OrdenMedica ordenMedica = repositorioOrdenes.get(idOrdenMedica);
+		ordenMedica.setDiagnostico(diagnostico);
+		repositorioOrdenes.modify(idOrdenMedica, ordenMedica);
 	}
 
 	public void agregarItemAOrdenMedica(int idOrdenMedica,
