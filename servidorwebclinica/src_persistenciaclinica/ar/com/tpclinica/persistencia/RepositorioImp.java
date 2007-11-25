@@ -16,6 +16,10 @@ public class RepositorioImp <E> implements Repositorio<E> {
 	 * Los elementos del repositorio tiene un id, ese id deberia ser el del mapa ¿no?
 	 */
 	public int add(E o) {
+		// si el id ya está siendo utilizado, busco el siguiente libre
+		while (coleccion.keySet().contains(num))
+			num++;
+		
 		coleccion.put(num++, o);
 		return num-1;
 	}
