@@ -30,7 +30,7 @@ public class Hidratador {
 		
 		int cantidad=3;
 		Especialidad e[] = new Especialidad[cantidad];
-		Repositorio<Prestacion> repPrestacion = RepositorioFactory.getInstancia().getRepositorioPrestacion();
+		Repositorio<Prestacion> repPrestacion = RepositoriosProvider.getInstancia().getRepositorioPrestacion();
 		
 		for(int i=0; i<cantidad; i++){
 			e[i]= new Especialidad();
@@ -57,7 +57,7 @@ public class Hidratador {
 	
 	public void hidratarMedicos(RepositorioMedicosImp repo){
 		int cantidad = 3;
-		Repositorio<Especialidad> repEsp = RepositorioFactory.getInstancia().getRepositorioEspecialidad();
+		Repositorio<Especialidad> repEsp = RepositoriosProvider.getInstancia().getRepositorioEspecialidad();
 		
 		Medico m[] = new Medico[cantidad];
 		
@@ -75,7 +75,11 @@ public class Hidratador {
 		m[2].setId(5002); m[2].setEspecialidad(repEsp.get(2));		
 		
 		for (int i=0; i<cantidad; i++){
-			repo.add(m[i]);
+			repo.modify(m[i].getId(), m[i]);
 		}
+	}
+	
+	public void hidratarOrdenes(Repositorio<OrdenMedica> repo){
+		
 	}
 }
