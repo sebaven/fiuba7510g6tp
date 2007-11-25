@@ -12,7 +12,8 @@ public class RepositoriosProvider {
 	private static RepositorioImp<Especialidad> repoEspecialidades;
 	private static RepositorioMedicosImp repoMedicos;
 	private static RepositorioImp<Plan> repoPlanes;
-	private static RepositorioOrdenesImp repoOrdenes;
+	private static RepositorioImp<Paciente> repoPacientes;
+	private static RepositorioOrdenesImp repoOrdenes;	
 	
 	private RepositoriosProvider(){
 		repoPrestaciones = new RepositorioImp<Prestacion>();
@@ -20,6 +21,7 @@ public class RepositoriosProvider {
 		repoMedicos = new RepositorioMedicosImp();
 		repoOrdenes = new RepositorioOrdenesImp();
 		repoPlanes = new RepositorioImp<Plan>();
+		repoPacientes = new RepositorioImp<Paciente>();
 	}
 	
 	
@@ -32,27 +34,32 @@ public class RepositoriosProvider {
 			h.hidratarEspecialidades(repoEspecialidades);
 			h.hidratarMedicos(repoMedicos);
 			h.hidratarOrdenes(repoOrdenes);
+			h.hidratarPacientes(repoPacientes);
 		}
 		return _instancia;
 	}
 	
-	public RepositorioImp<Prestacion> getRepositorioPrestacion(){
+	public Repositorio<Prestacion> getRepositorioPrestacion(){
 		return repoPrestaciones;
 	}
 	
-	public RepositorioImp<Especialidad> getRepositorioEspecialidad(){
+	public Repositorio<Especialidad> getRepositorioEspecialidad(){
 		return repoEspecialidades;
 	}
 	
-	public RepositorioMedicosImp getRepositorioMedico(){
+	public RepositorioMedicos getRepositorioMedico(){
 		return repoMedicos;
 	}
 	
-	public RepositorioOrdenes getRepositorioOrdenes(){
+	public Repositorio<OrdenMedica> getRepositorioOrdenes(){
 		return repoOrdenes;
 	}
 	
-	public RepositorioImp<Plan> getRepositorioPlanes(){
+	public Repositorio<Plan> getRepositorioPlanes(){
 		return repoPlanes;
+	}
+	
+	public Repositorio<Paciente> getRepositorioPacientes(){
+		return repoPacientes;
 	}
 }
