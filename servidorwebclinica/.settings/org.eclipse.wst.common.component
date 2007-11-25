@@ -2,11 +2,17 @@
 <project-modules id="moduleCoreId" project-version="1.5.0">
     <wb-module deploy-name="servidorwebclinica">
         <wb-resource deploy-path="/" source-path="/WebContent"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src_persistenciaclinica"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src_serviciosclinica"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src_servidorwebclinica"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/test_serviciosremotosclinica"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src_modeloclinica"/>
+        <dependent-module deploy-path="/WEB-INF/lib" handle="module:/resource/serviciosclinica/serviciosclinica">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module deploy-path="/WEB-INF/lib" handle="module:/resource/dominioclinica/dominioclinica">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module deploy-path="/WEB-INF/lib" handle="module:/resource/persistenciaclinica/persistenciaclinica">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <property name="java-output-path" value="build/classes"/>
         <property name="context-root" value="servidorwebclinica"/>
     </wb-module>
