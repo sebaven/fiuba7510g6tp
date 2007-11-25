@@ -1,11 +1,15 @@
 package ar.com.tpclinica.negocio;
 
 public class OrdenMedicaEstado {
-	private static final String AUTORIZADA="Autorizada";
-	private static final String ENVIADA="Enviada";
-	private static final String PENDIENTE_AUTORIZACION="PendienteAutorizacion";
+	public static final String AUTORIZADA="Autorizada";
+	public static final String ENVIADA="Enviada";
+	public static final String PENDIENTE_AUTORIZACION="PendienteAutorizacion";
 	private String descripcion;
 
+	public OrdenMedicaEstado(String e){
+		this.descripcion = e;
+	}
+	
 	/**
 	 * @return the descripcion
 	 */
