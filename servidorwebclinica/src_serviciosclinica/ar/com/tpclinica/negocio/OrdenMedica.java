@@ -1,5 +1,6 @@
 package ar.com.tpclinica.negocio;
 
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -18,6 +19,11 @@ public class OrdenMedica {
 	private Medico medico;
 
 	private List<OrdenMedicaItem> items;
+	
+	private int nroOrden;
+	
+	private Date fechaOrden;
+	
 	
 	public OrdenMedica(){
 		items = new LinkedList<OrdenMedicaItem>();
@@ -133,6 +139,22 @@ public class OrdenMedica {
 	 */
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public int getNroOrden() {
+		return nroOrden;
+	}
+
+	public void setNroOrden(int nroOrden) {
+		this.nroOrden = nroOrden;
+	}
+
+	public Date getFechaOrden() {
+		return fechaOrden;
+	}
+
+	public void setFechaOrden(Date fechaOrden) {
+		this.fechaOrden = fechaOrden;
 	}
 
 }
