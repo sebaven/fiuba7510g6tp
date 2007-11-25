@@ -2,6 +2,7 @@ package ar.com.tplaboratorio.negocio;
 
 public class Tecnico {
 	private int id;
+	private int nroLegajo;
 	private String nombre;
 	private String apellido;
 	private String direccion;

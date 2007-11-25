@@ -7,6 +7,7 @@ public class OrdenMedicaLab {
 	private String paciente;
 	private String medico;
 	private String diagnostico;
+	private int nroOrden;
 	private List<ItemOrdenMedica> items;
 	public int getId() {
 		return id;
