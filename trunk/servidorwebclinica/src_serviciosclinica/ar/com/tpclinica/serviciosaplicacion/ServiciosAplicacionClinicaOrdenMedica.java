@@ -16,9 +16,7 @@ public class ServiciosAplicacionClinicaOrdenMedica extends
 	public void autorizarOrdenMedica(int idOrdenMedica) {
 		RepositorioOrdenes repositorioOrdenes = RepositoriosProvider.getInstancia().getRepositorioOrdenes();
 		OrdenMedica ordenMedica = repositorioOrdenes.get(idOrdenMedica);
-		OrdenMedicaEstado ordenMedicaEstado = new OrdenMedicaEstado();
-		ordenMedicaEstado.setDescripcion("Autorizada");
-		ordenMedica.cambiarEstado(ordenMedicaEstado);
+		ordenMedica.cambiarEstado(new OrdenMedicaEstado(OrdenMedicaEstado.AUTORIZADA));
 		repositorioOrdenes.modify(ordenMedica.getId(), ordenMedica);
 
 	}
