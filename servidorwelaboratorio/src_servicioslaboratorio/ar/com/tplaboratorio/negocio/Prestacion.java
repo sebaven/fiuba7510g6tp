@@ -12,6 +12,22 @@ public class Prestacion {
 	public void setDescripcion(String descripcion) {
 		this.descripcion = descripcion;
 	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public int getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(int codigo) {
+		this.codigo = codigo;
+	}
 	
 	
 }
