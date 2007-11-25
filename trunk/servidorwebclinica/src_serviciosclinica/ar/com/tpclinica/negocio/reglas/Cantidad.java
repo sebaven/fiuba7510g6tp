@@ -1,12 +1,14 @@
 package ar.com.tpclinica.negocio.reglas;
 
+import ar.com.tpclinica.negocio.OrdenMedica;;
+
 public class Cantidad extends Operando {
 	private int valor;
 	
 	/**
 	 * @return the valor
 	 */
-	public int getValor() {
+	public int getValor(OrdenMedica om) {
 		return valor;
 	}
 
