@@ -16,5 +16,4 @@ public abstract class Operando {
 	public int getTipo() {
 		return tipo;
 	}
-
 }

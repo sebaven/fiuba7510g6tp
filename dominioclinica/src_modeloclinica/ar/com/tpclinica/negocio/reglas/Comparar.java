@@ -63,4 +63,11 @@ public class Comparar extends OperacionConOperandos {
 		this.igual = igual;
 	}
 	
+	@Override
+	public boolean equals(Object obj) {
+		Comparar c = (Comparar)obj;
+		if ((c.getA().equals(this.A)) && (c.getB().equals(this.B)) && (c.getIgual().equals(this.igual)) && (c.getMayor().equals(this.mayor)) && (c.getMenor().equals(this.menor)))
+			return true;
+		else return false;
+	}
 }

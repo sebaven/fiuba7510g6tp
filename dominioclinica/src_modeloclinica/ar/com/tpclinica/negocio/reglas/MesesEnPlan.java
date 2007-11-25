@@ -8,4 +8,11 @@ public class MesesEnPlan extends Operando {
 		//TODO!!!
 		return 0;
 	}
+	@Override
+	public boolean equals(Object obj) {
+		OrdenMedica om = null;
+		if (((Operando)obj).getValor(om)==this.getValor(om))
+			return true;
+		else return false;
+	}
 }
