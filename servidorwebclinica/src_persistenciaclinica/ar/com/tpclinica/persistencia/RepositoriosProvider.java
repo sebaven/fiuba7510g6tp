@@ -11,14 +11,14 @@ public class RepositoriosProvider {
 	private static RepositorioImp<Prestacion> repoPrestaciones;
 	private static RepositorioImp<Especialidad> repoEspecialidades;
 	private static RepositorioMedicosImp repoMedicos;
-	private static RepositorioImp<OrdenMedica> repoOrdenes;
 	private static RepositorioImp<Plan> repoPlanes;
+	private static RepositorioOrdenesImp repoOrdenes;
 	
 	private RepositoriosProvider(){
 		repoPrestaciones = new RepositorioImp<Prestacion>();
 		repoEspecialidades = new RepositorioImp<Especialidad>();
 		repoMedicos = new RepositorioMedicosImp();
-		repoOrdenes = new RepositorioImp<OrdenMedica>();
+		repoOrdenes = new RepositorioOrdenesImp();
 		repoPlanes = new RepositorioImp<Plan>();
 	}
 	
@@ -48,7 +48,7 @@ public class RepositoriosProvider {
 		return repoMedicos;
 	}
 	
-	public RepositorioImp<OrdenMedica> getRepositorioOrdenes(){
+	public RepositorioOrdenesImp getRepositorioOrdenes(){
 		return repoOrdenes;
 	}
 	
