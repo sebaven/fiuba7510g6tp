@@ -1,58 +1,38 @@
 package ar.com.tpclinica.persistencia;
 
 import java.util.Collection;
-import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.concurrent.ConcurrentHashMap;
 
 import ar.com.tpclinica.negocio.Especialidad;
 import ar.com.tpclinica.negocio.Medico;
 
-public class RepositorioMedicosImp implements RepositorioMedicos {
+public class RepositorioMedicosImp extends RepositorioImp<Medico> implements RepositorioMedicos {
 
-	private HashMap<Integer, Medico> _medicos;
-	static RepositorioMedicosImp _instancia = null;
+	private ConcurrentHashMap<Integer, Medico> coleccion;
 	
-	// Métodos estáticos para implementar Singleton	
-	static RepositorioMedicosImp getInstancia(){
-		if (_instancia==null) _instancia = new RepositorioMedicosImp();
-		return _instancia;
+	public RepositorioMedicosImp(){
+		coleccion = new ConcurrentHashMap<Integer, Medico>();
 	}
-
-	//constructor privado.
-	/* Se instancian en memoria varios objetos de tipo Medico, a fin de 
-	 * demostrar el funcionamiento que tendría un repositorio.
-	 * */
-	private RepositorioMedicosImp(){
+	
+	
+	public Collection<Medico> getByEspecialidad(Especialidad e) {
+		//voy a ir almacenando los medicos que matcheen con la especialidad en esta lista
+		LinkedList<Medico> resultados = new LinkedList<Medico>();
 		
-	}
-	
-	public Medico getByEspecialidad(Especialidad e) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public int add(Medico o) {
-		// TODO Auto-generated method stub
-return -19;
-	}
-
-	public void borrar(Medico o) {
-		// TODO Auto-generated method stub
-
+		//voy recorriendo la lista completa de médicos
+		Iterator it = coleccion.values().iterator();
+		while (it.hasNext()){
+			Medico m = (Medico)it.next();
+			if (m.getEspecialidad().getCodigo()==e.getCodigo()){
+				resultados.add(m);
+			}
+			
+		}
+		return resultados;
 	}
 
-	public boolean existe(Medico o) {
-		// TODO Auto-generated method stub
-		return false;
-	}
 
-	public Medico get(int id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public Collection<Medico> getAll() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 }
