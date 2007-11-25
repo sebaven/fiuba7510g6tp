@@ -21,7 +21,7 @@ public class Hidratador {
 		
 		for(int i=0; i<cantidad; i++){
 			p[i].setId(i);
-			repoPrestaciones.add(p[i]);
+			repoPrestaciones.modify(p[i].getId(), p[i]);
 		}
 	}
 	
@@ -51,7 +51,7 @@ public class Hidratador {
 		for (int id=1;id<4;id++) e[2].agregarPrestacion(repPrestacion.get(id));
 		
 		for(int i=0; i<cantidad; i++){
-			repoEspecialidades.add(e[i]);
+			repoEspecialidades.modify(e[i].getCodigo(), e[i]);
 		}
 	}
 	
