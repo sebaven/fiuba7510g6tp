@@ -118,6 +118,7 @@ public class OrdenMedica {
 	 */
 	public void setPaciente(Paciente paciente) {
 		this.paciente = paciente;
+		paciente.addOrden(this);
 	}
 
 	/**
