@@ -1,6 +1,12 @@
 package ar.com.tpclinica.negocio.reglas;
 
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+
 import ar.com.tpclinica.negocio.OrdenMedica;
+import ar.com.tpclinica.negocio.Prestacion;
+import ar.com.tpclinica.serviciosaplicacion.ServiciosAplicacionClinicaPaciente;
 
 public class PrestacionesPorPeriodoConHistorial extends Operando {
 	private int periodo;
@@ -41,8 +47,23 @@ public class PrestacionesPorPeriodoConHistorial extends Operando {
 	
 	public int getValor(OrdenMedica om)
 	{
-		//TODO!!!!
-		return 0;
+		// en ese tiempo, cuántas veces aparece la prestac. en el historial
+        Calendar lTemp = new GregorianCalendar();
+        lTemp.setTime( new Date() );
+        lTemp.add( lTemp.DAY_OF_MONTH, -1 * this.periodo);
+        Date fechaInicial = new Date(lTemp.getTimeInMillis());
+		int cant_veces = 0;
+
+		ServiciosAplicacionClinicaPaciente sacp = new ServiciosAplicacionClinicaPaciente();
+		for (OrdenMedica omActual : sacp.getTodasLasOrdenesMedicasDePaciente(om.getIdPaciente())) {
+			if (om.getFechaOrden().after(fechaInicial)) { // se tiene en cuenta a la orden
+				for (ar.com.tpclinica.negocio.OrdenMedicaItem omi : omActual.getItems()) { // se itera sobre los items
+					if (omi.getPrestacion().getDescripcion().equals(this.prestacion)) // es esta Prestacion... se la cuenta...
+						cant_veces++; 
+				}
+			}
+		}
+		return cant_veces;
 	}
 	
 	@Override
