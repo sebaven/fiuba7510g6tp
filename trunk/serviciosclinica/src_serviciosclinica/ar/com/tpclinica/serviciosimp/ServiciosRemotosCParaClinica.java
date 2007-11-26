@@ -2,7 +2,7 @@ package ar.com.tpclinica.serviciosimp;
 
 import java.util.Collection;
 
-import ar.com.tpclinica.servicios.interfaces.IOrdenMedica;
+import ar.com.tpclinica.negocio.OrdenMedica;
 import ar.com.tpclinica.servicios.interfaces.ISerrvicioRemotoOrdenMedica;
 
 /**
@@ -19,14 +19,14 @@ class ServiciosRemotosCParaClinica implements ISerrvicioRemotoOrdenMedica{
 	 * Aca va el servico remoto al que se llama en serio
 	 */
 	private Object serviciosRemotoPosta;
-	public void enviarOrdenLaboratorio(IOrdenMedica ordenMedica,
+	public void enviarOrdenLaboratorio(OrdenMedica ordenMedica,
 			String codigoLaboratorio) {
 
 		
 		
 	}
 
-	public void enviarOrdenLaboratorio(Collection<IOrdenMedica> ordenesMedicas,
+	public void enviarOrdenLaboratorio(Collection<OrdenMedica> ordenesMedicas,
 			String codigoLaboratorio) {
 
 		
