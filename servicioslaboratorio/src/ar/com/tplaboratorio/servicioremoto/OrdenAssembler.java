@@ -1,7 +1,11 @@
 package ar.com.tplaboratorio.servicioremoto;
 
+import java.util.Iterator;
+
+import ar.com.tplaboratorio.negocio.ItemOrdenMedica;
 import ar.com.tplaboratorio.negocio.OrdenMedicaLab;
 import ar.com.tplaboratorio.servicioremoto.assembler.ItemOrdenLabAssembler;
+import ar.com.tplaboratorio.servicios.orden.dto.ItemOrdenMedicaDTO;
 import ar.com.tplaboratorio.servicios.orden.dto.OrdeneMedicaDTO;
 
 public class OrdenAssembler {
@@ -19,5 +23,28 @@ public class OrdenAssembler {
 		
 		}
 		return ordenMedicaLab;
+	}
+	
+	public OrdeneMedicaDTO disasembler(OrdenMedicaLab ordenMedica){
+		OrdeneMedicaDTO ordenMedicaDTO=new OrdeneMedicaDTO();
+		ordenMedicaDTO.setMedico(ordenMedica.getMedico());
+		ordenMedicaDTO.setDiagnostico(ordenMedica.getDiagnostico());
+		ordenMedicaDTO.setNroOrden(ordenMedica.getNroOrden());
+		ordenMedicaDTO.setPaciente(ordenMedica.getPaciente());
+		
+		ItemOrdenLabAssembler itemAseAssembler=new ItemOrdenLabAssembler();
+		
+		ItemOrdenMedicaDTO[] itemsDTO=new ItemOrdenMedicaDTO[ordenMedica.getItems().size()];
+		
+		int i=0;
+		for (Iterator iterator = ordenMedica.getItems().iterator(); iterator.hasNext();i++) {
+			ItemOrdenMedica itemOrden = (ItemOrdenMedica) iterator.next();
+			itemsDTO[i]=itemAseAssembler.desensamblar(itemOrden);
+		}
+		ordenMedicaDTO.setItems(itemsDTO);
+		
+		return ordenMedicaDTO;
+		
+		
 	}
 }
