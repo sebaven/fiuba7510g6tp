@@ -7,6 +7,9 @@ public class OrdenMedicaItem {
 
 	private Prestacion prestacion;
 
+	public OrdenMedicaItem() {
+	}
+
 	public OrdenMedicaItem(Prestacion prestacion2) {
 		this.setPrestacion(prestacion2);
 		this.setDescripcion(prestacion2.getDescripcion());
