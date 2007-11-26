@@ -5,6 +5,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import ar.com.tpclinica.negocio.*;
+import ar.com.tpclinica.negocio.reglas.*;
+import ar.com.tpclinica.negocio.reglas.ResultadoRegla;
 import ar.com.tpclinica.persistencia.excepciones.ClaveNoExisteExcepcion;
 
 public class Hidratador {
@@ -155,31 +157,86 @@ public class Hidratador {
 		om[2].agregarItem(it5);
 		
 		OrdenMedicaItem it6 = new OrdenMedicaItem();
-		it6.setPrestacion(repPrestaciones.get(1)); //tomografia
+		it6.setPrestacion(repPrestaciones.get(3)); //tomografia
 		it6.setDescripcion("Computada de craneo");
 		om[2].agregarItem(it6);
+		
+		for (int i=0; i<cantidad; i++){
+			repo.modify(om[i].getId(),om[i]);
+		}
 		
 	
 	}
 	
-	public void hidratarPacientes(Repositorio<Paciente> repo){
+	public void hidratarPacientes(Repositorio<Paciente> repo) throws ClaveNoExisteExcepcion{
 		int cantidad = 5;
+		Repositorio<Plan> repoPlan = RepositoriosProvider.getInstancia().getRepositorioPlanes();
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 		Paciente p[] = new Paciente[cantidad];
 		
-		Plan plan = new Plan();
 		try {
-			p[0] = crearPaciente("Gonzalez", "Gonzalo", 30521129, 1130, "gg@mail.com", "4444-5454", plan, formatter.parse("2007-04-30"));
-			p[1] = crearPaciente("Ramirez", "Ramiro", 35641612, 1135, "rr@mail.com", "4452-7878", plan, formatter.parse("2006-05-29"));
-			p[2] = crearPaciente("Gonzalez", "Ramiro", 28546548, 1211, "rg@mail.com", "4999-5454", plan, formatter.parse("2005-06-28"));
-			p[3] = crearPaciente("Martinez", "Martin", 21333447, 1251, "mm@mail.com", "4049-7894", plan, formatter.parse("2004-07-27"));
-			p[4] = crearPaciente("Rodriguez", "Rodrigo", 3153478, 1255, "rod@mail.com", "5059-1234", plan, formatter.parse("2003-08-2"));
+			p[0] = crearPaciente("Gonzalez", "Gonzalo", 30521129, 1130, "gg@mail.com", "4444-5454", repoPlan.get(0), formatter.parse("2007-04-30"));
+			p[1] = crearPaciente("Ramirez", "Ramiro", 35641612, 1135, "rr@mail.com", "4452-7878", repoPlan.get(1000), formatter.parse("2006-05-29"));
+			p[2] = crearPaciente("Gonzalez", "Ramiro", 28546548, 1211, "rg@mail.com", "4999-5454", repoPlan.get(10000), formatter.parse("2005-06-28"));
+			p[3] = crearPaciente("Martinez", "Martin", 21333447, 1251, "mm@mail.com", "4049-7894", repoPlan.get(0), formatter.parse("2004-07-27"));
+			p[4] = crearPaciente("Rodriguez", "Rodrigo", 3153478, 1255, "rod@mail.com", "5059-1234", repoPlan.get(10000), formatter.parse("2003-08-2"));
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}		
 		for (int i=0; i<cantidad; i++){
 			repo.modify(p[i].getId(), p[i]);
 		}
+		
+	}
+	
+	public void hidratarPlanes(Repositorio<Plan> repo) throws ClaveNoExisteExcepcion{
+		int cantidad = 3;
+		Plan p[] = new Plan[cantidad];
+		Repositorio<Prestacion> repoPres = RepositoriosProvider.getInstancia().getRepositorioPrestacion();
+		
+		for (int i=0; i<cantidad; i++){
+			p[i] = new Plan();
+		}
+		
+		p[0].setId(0);
+		Operacion regla = new OperacionDeResultadoDirecto(new ResultadoRegla(OrdenMedicaEstado.CANCELAR_ORDEN));
+		p[0].setOperacion(regla);
+		
+		p[1].setId(1000);
+		Operacion regla2 = new OperacionDeResultadoDirecto(new ResultadoRegla(OrdenMedicaEstado.AUTORIZADA));
+		p[1].setOperacion(regla2);
+		
+		p[2].setId(10000);
+		ResultadoRegla r1 = new ResultadoRegla(OrdenMedicaEstado.AUTORIZADA);
+		ResultadoRegla r2 = new ResultadoRegla(OrdenMedicaEstado.AUTORIZADA);
+		ResultadoRegla r3 = new ResultadoRegla(OrdenMedicaEstado.AUTORIZADA);
+		ResultadoRegla r4 = new ResultadoRegla(OrdenMedicaEstado.CANCELAR_ORDEN);
+		ResultadoRegla r5 = new ResultadoRegla(OrdenMedicaEstado.CANCELAR_ORDEN);
+		
+		Operacion opD1 = new OperacionDeResultadoDirecto(r1);
+		Operacion opD2 = new OperacionDeResultadoDirecto(r2);
+		Operacion opD3 = new OperacionDeResultadoDirecto(r3);
+		Operacion opD4 = new OperacionDeResultadoDirecto(r4);
+		Operacion opD5 = new OperacionDeResultadoDirecto(r5);
+		
+		Operando presPorOrden = new PrestacionesPorOrden(repoPres.get(3).getDescripcion());
+		Operando c0 = new Cantidad(0);
+		
+		//Operando presHistorial = new PrestacionesPorPeriodoConHistorial(repoPres.get(3).getDescripcion(),365);
+		Operando presHistorial = new MesesEnPlan();
+		Operando c10 = new Cantidad(10);
+		
+		Operacion comparar2 = new Comparar(presHistorial,c10,opD5,opD4,opD3);		
+		Operacion comparar1 = new Comparar(presPorOrden,c0,comparar2,opD2,opD1);
+		
+		p[2].setOperacion(comparar1);
+		
+		for (int i=0; i<cantidad; i++){
+			repo.modify(p[i].getId(),p[i]);
+		}
+		
+		
+		
 		
 	}
 
