@@ -8,12 +8,12 @@ import ar.com.tpclinica.negocio.exepciones.OrdenMedicaInvalidaException;
 import ar.com.tpclinica.persistencia.Repositorio;
 import ar.com.tpclinica.persistencia.RepositorioOrdenes;
 import ar.com.tpclinica.persistencia.RepositoriosProvider;
+import ar.com.tpclinica.persistencia.excepciones.ClaveNoExisteExcepcion;
 
 public class ServiciosAplicacionClinicaOrdenMedica extends
 		ServiciosAplicacionClinica {
-	private Repositorio<OrdenMedica> respositorioOrdenesMedicas;
 
-	public void autorizarOrdenMedica(int idOrdenMedica) {
+	public void autorizarOrdenMedica(int idOrdenMedica) throws ClaveNoExisteExcepcion {
 		RepositorioOrdenes repositorioOrdenes = RepositoriosProvider
 				.getInstancia().getRepositorioOrdenes();
 		OrdenMedica ordenMedica = repositorioOrdenes.get(idOrdenMedica);
@@ -23,7 +23,7 @@ public class ServiciosAplicacionClinicaOrdenMedica extends
 
 	}
 
-	public void cancelarOrdenMedica(int idOrdenMedica) {
+	public void cancelarOrdenMedica(int idOrdenMedica) throws ClaveNoExisteExcepcion {
 		RepositorioOrdenes repositorioOrdenes = RepositoriosProvider
 				.getInstancia().getRepositorioOrdenes();
 		OrdenMedica ordenMedicaACancelar = repositorioOrdenes
@@ -33,8 +33,8 @@ public class ServiciosAplicacionClinicaOrdenMedica extends
 		repositorioOrdenes.modify(idOrdenMedica, ordenMedicaACancelar);
 	}
 
-	public OrdenMedica getOrdenMedica(int idOrdenMedica) {
-		return respositorioOrdenesMedicas.get(idOrdenMedica);
+	public OrdenMedica getOrdenMedica(int idOrdenMedica) throws ClaveNoExisteExcepcion {
+		return RepositoriosProvider.getInstancia().getRepositorioOrdenes().get(idOrdenMedica);
 	}
 
 	public void crearNuevaOrdenMedica(OrdenMedica nuevaOrdenMedica)
@@ -47,7 +47,7 @@ public class ServiciosAplicacionClinicaOrdenMedica extends
 	}
 
 	public void agregarDiagnosticoAOrdenMedica(int idOrdenMedica,
-			String diagnostico) {
+			String diagnostico) throws ClaveNoExisteExcepcion {
 		Repositorio<OrdenMedica> repositorioOrdenes = RepositoriosProvider
 				.getInstancia().getRepositorioOrdenes();
 		OrdenMedica ordenMedica = repositorioOrdenes.get(idOrdenMedica);
@@ -56,24 +56,9 @@ public class ServiciosAplicacionClinicaOrdenMedica extends
 	}
 
 	public void agregarItemAOrdenMedica(int idOrdenMedica,
-			OrdenMedicaItem ordenMedicaItem) {
+			OrdenMedicaItem ordenMedicaItem) throws ClaveNoExisteExcepcion {
 		getOrdenMedica(idOrdenMedica).agregarItem(ordenMedicaItem);
 	}
 
-	/**
-	 * @return the respositorioOrdenesMedicas
-	 */
-	public Repositorio<OrdenMedica> getRespositorioOrdenesMedicas() {
-		return respositorioOrdenesMedicas;
-	}
-
-	/**
-	 * @param respositorioOrdenesMedicas
-	 *            the respositorioOrdenesMedicas to set
-	 */
-	public void setRespositorioOrdenesMedicas(
-			Repositorio<OrdenMedica> respositorioOrdenesMedicas) {
-		this.respositorioOrdenesMedicas = respositorioOrdenesMedicas;
-	}
 
 }
