@@ -35,6 +35,7 @@ public class RepositoriosProvider {
 			try{
 				h.hidratarEspecialidades(repoEspecialidades);
 				h.hidratarMedicos(repoMedicos);
+				h.hidratarPlanes(repoPlanes);
 				h.hidratarPacientes(repoPacientes);
 				h.hidratarOrdenes(repoOrdenes);
 				
