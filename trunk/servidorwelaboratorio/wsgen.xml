@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+
+<project default="main" basedir=".">
+
+<echo message="pulling in property files"/>
+<property file="axisservice.properties"/>
+
+<path id="axis.classpath">
+	  <fileset dir="D:/workspaces/tptecnicas/commonslibs/lib">
+	    <include name="**/*.jar" />
+	  </fileset>
+	</path>
+
+<taskdef resource="axis-tasks.properties"
+	  classpathref="axis.classpath" />
+	
+<echo message="calling the web services generation ant task: wsgen"/>
+ <target name="main" >
+  	 <wsgen/>
+  </target>
+  
+ <target name="deployServices">
+	<axis-admin
+	    port="8080"
+	    hostname="localhost"
+	    failonerror="true"
+	    servletpath="servidorwelaboratorio/services/AdminService"
+	    debug="true"
+	    xmlfile="WebContent/WEB-INF/resources/webservices/serviciosremotos.wsdd"
+	    />
+ </target>
+
+	 <target name="undeployServices">
+		<axis-admin
+		    port="8080"
+		    hostname="localhost"
+		    failonerror="true"
+		    servletpath="servidorwelaboratorio/services/AdminService"
+		    debug="true"
+		    xmlfile="WebContent/WEB-INF/resources/webservice/UNDEPLOYserviciosremotos.wsdd"
+		    />
+	 </target>
+
+</project>
