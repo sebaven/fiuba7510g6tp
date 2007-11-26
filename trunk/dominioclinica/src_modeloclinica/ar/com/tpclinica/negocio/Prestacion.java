@@ -17,6 +17,10 @@ public class Prestacion {
 	 * @return the descripcion
 	 */
 
+	public Prestacion() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public Prestacion(String descripcion) {
 		this("sorga", descripcion);
 	}
