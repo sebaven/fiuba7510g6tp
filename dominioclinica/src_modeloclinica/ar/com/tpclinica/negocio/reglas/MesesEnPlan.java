@@ -7,6 +7,10 @@ import java.util.GregorianCalendar;
 import ar.com.tpclinica.negocio.OrdenMedica;
 
 public class MesesEnPlan extends Operando {
+	public MesesEnPlan ()
+	{
+		this.setTipo(1);
+	}
 	public int getValor(OrdenMedica om)
 	{
 		//TODO!!! // cant de meses q tiene el usr en el plan

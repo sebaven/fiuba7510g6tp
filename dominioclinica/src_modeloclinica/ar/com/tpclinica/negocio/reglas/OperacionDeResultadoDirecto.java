@@ -11,7 +11,9 @@ public class OperacionDeResultadoDirecto implements Operacion {
 	public ResultadoRegla getResultado() {
 		return resultado;
 	}
-
+	public int getTipo(){
+		return 0;
+	}
 	/**
 	 * @param resultado the resultado to set
 	 */
