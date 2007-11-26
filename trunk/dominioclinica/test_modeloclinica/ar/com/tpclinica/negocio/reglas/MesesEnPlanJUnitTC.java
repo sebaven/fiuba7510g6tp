@@ -14,14 +14,14 @@ public class MesesEnPlanJUnitTC extends TestCase {
 		Paciente paciente = new Paciente();
 		Calendar calendar = Calendar.getInstance();
 		calendar.set(Calendar.YEAR, 2007);
-		calendar.set(Calendar.MONTH, Calendar.APRIL);
-		calendar.set(Calendar.DAY_OF_MONTH, 1);
+		calendar.set(Calendar.MONTH, Calendar.OCTOBER);
+		calendar.set(Calendar.DAY_OF_MONTH, 27);
 		Date date = new Date(calendar.getTimeInMillis());
 		paciente.setFechaInicioPlan(date);
 		
 		OrdenMedica medica = new OrdenMedica();
 		medica.setPaciente(paciente);
 		MesesEnPlan plan = new MesesEnPlan();
-		Assert.assertEquals(plan.getValor(medica), 7);
+		Assert.assertEquals(plan.getValor(medica), 0);
 	}
 }
