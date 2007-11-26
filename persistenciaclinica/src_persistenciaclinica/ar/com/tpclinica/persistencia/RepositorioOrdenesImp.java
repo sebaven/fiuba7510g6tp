@@ -1,9 +1,13 @@
 package ar.com.tpclinica.persistencia;
 
+import java.util.Collection;
+import java.util.LinkedList;
+
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.collections.Predicate;
 
 import ar.com.tpclinica.negocio.OrdenMedica;
+import ar.com.tpclinica.negocio.Paciente;
 
 class RepositorioOrdenesImp extends RepositorioImp<OrdenMedica> implements RepositorioOrdenes {
 
@@ -20,6 +24,15 @@ class RepositorioOrdenesImp extends RepositorioImp<OrdenMedica> implements Repos
 			}
 			
 		});
+	}
+
+	public Collection<OrdenMedica> getPorPaciente(Paciente p) {
+		Collection<OrdenMedica> ordenes = this.getAll();
+		LinkedList<OrdenMedica> resultado = new LinkedList<OrdenMedica>();
+		for (OrdenMedica orden:ordenes){
+			if (orden.getPaciente().getId()==p.getId()) resultado.add(orden);
+		}
+		return resultado;
 	}
 
 	
