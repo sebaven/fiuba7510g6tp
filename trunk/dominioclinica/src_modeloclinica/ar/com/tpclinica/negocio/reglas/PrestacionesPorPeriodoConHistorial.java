@@ -54,8 +54,7 @@ public class PrestacionesPorPeriodoConHistorial extends Operando {
         Date fechaInicial = new Date(lTemp.getTimeInMillis());
 		int cant_veces = 0;
 
-		ServiciosAplicacionClinicaPaciente sacp = new ServiciosAplicacionClinicaPaciente();
-		for (OrdenMedica omActual : sacp.getTodasLasOrdenesMedicasDePaciente(om.getIdPaciente())) {
+		for (OrdenMedica omActual : om.getPaciente().getOrdenesMedicas()) {
 			if (om.getFechaOrden().after(fechaInicial)) { // se tiene en cuenta a la orden
 				for (ar.com.tpclinica.negocio.OrdenMedicaItem omi : omActual.getItems()) { // se itera sobre los items
 					if (omi.getPrestacion().getDescripcion().equals(this.prestacion)) // es esta Prestacion... se la cuenta...
