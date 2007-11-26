@@ -109,5 +109,9 @@ public class Paciente {
 		return plan;
 	}
 
+	public Date getFechaInicioPlan() {
+		return fechaInicioPlan;
+	}
+
 	
 }
