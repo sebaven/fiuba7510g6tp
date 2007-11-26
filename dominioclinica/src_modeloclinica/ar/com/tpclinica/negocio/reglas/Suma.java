@@ -22,7 +22,7 @@ public class Suma extends OperacionConOperandos {
 		this.op = op;
 	}
 	
-	public Resultado aplicar (OrdenMedica om)
+	public ResultadoRegla aplicar (OrdenMedica om)
 	{
 		this.op.setPrimerOperando(new Cantidad(this.getPrimerOperando().getValor(om) + this.getSegundoOperando().getValor(om)));
 		return this.op.aplicar(om);
