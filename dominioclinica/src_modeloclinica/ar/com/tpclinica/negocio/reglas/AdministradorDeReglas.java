@@ -20,7 +20,7 @@ private Map mapOperaciones,mapReglaDePresentacion;
 	}
 	public void setReglaPorPrestacion(ReglaDePrestacion regla) {
 		Operacion subRegla1,subRegla2;
-		Operacion resultadoVerdadero = new OperacionDeResultadoDirecto(new Resultado("Verdadero"));
+		Operacion resultadoVerdadero = new OperacionDeResultadoDirecto(new ResultadoRegla("Verdadero"));
 		
 		ReglaSimple rs1 = regla.getRegla1();
 		ReglaSimple rs2 = regla.getRegla2();
@@ -92,19 +92,19 @@ private Map mapOperaciones,mapReglaDePresentacion;
 	private Operacion getOperacionCumpleFromReglaSimple(ReglaSimple r)
 	{
 		if(r.getCumple().compareTo("Verdadero")==0)
-			return new OperacionDeResultadoDirecto(new Resultado("Verdadero"));
+			return new OperacionDeResultadoDirecto(new ResultadoRegla("Verdadero"));
 		else if (r.getCumple().compareTo("Falso")==0)
-			return new OperacionDeResultadoDirecto(new Resultado("Falso"));
-			else return new OperacionDeResultadoDirecto(new Resultado("Autorizar"));
+			return new OperacionDeResultadoDirecto(new ResultadoRegla("Falso"));
+			else return new OperacionDeResultadoDirecto(new ResultadoRegla("Autorizar"));
 	}
 	
 	private Operacion getOperacionNoCumpleFromReglaSimple(ReglaSimple r)
 	{
 		if(r.getNoCumple().compareTo("Verdadero")==0)
-			return  new OperacionDeResultadoDirecto(new Resultado("Verdadero"));
+			return  new OperacionDeResultadoDirecto(new ResultadoRegla("Verdadero"));
 		else if (r.getNoCumple().compareTo("Falso")==0)
-			return  new OperacionDeResultadoDirecto(new Resultado("Falso"));
-			else return  new OperacionDeResultadoDirecto(new Resultado("Autorizar"));
+			return  new OperacionDeResultadoDirecto(new ResultadoRegla("Falso"));
+			else return  new OperacionDeResultadoDirecto(new ResultadoRegla("Autorizar"));
 	}
 	
 	private Operando getOperandoFromLimitante(Limitante l)

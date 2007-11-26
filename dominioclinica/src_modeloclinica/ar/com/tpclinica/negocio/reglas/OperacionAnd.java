@@ -38,9 +38,9 @@ private Operacion primerOperacion, segundaOperacion;
 		segundaOperacion = B;
 	}
 
-	public Resultado aplicar(OrdenMedica om) {
+	public ResultadoRegla aplicar(OrdenMedica om) {
 		String resultadoPrimerOperacion,resultadoSegundaOperacion;
-		Resultado retVal;
+		ResultadoRegla retVal;
 		String resultadoFinal;
 		resultadoPrimerOperacion = this.primerOperacion.aplicar(om).getResultado();
 		resultadoSegundaOperacion = this.segundaOperacion.aplicar(om).getResultado();
@@ -51,7 +51,7 @@ private Operacion primerOperacion, segundaOperacion;
 				resultadoFinal = "Autorizar";
 			else
 				resultadoFinal = "Verdadero";
-		retVal = new Resultado(resultadoFinal);
+		retVal = new ResultadoRegla(resultadoFinal);
 		return retVal;
 	}
 	@Override
