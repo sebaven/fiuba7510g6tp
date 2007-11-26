@@ -16,7 +16,7 @@ public class Comparar extends OperacionConOperandos {
 	public int getTipo(){
 		return 3;
 	}
-	public Resultado aplicar (OrdenMedica om)
+	public ResultadoRegla aplicar (OrdenMedica om)
 	{
 		if (this.A.getValor(om) > this.B.getValor(om))
 			return this.mayor.aplicar(om);
