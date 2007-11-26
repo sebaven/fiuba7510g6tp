@@ -1,5 +1,7 @@
 package ar.com.tpclinica.persistencia;
 
+import java.util.Date;
+
 import ar.com.tpclinica.negocio.*;
 import ar.com.tpclinica.persistencia.excepciones.ClaveNoExisteExcepcion;
 
@@ -193,7 +195,7 @@ public class Hidratador {
 		p.setId(id);
 		p.setMail(mail);
 		p.setNombre(nombre);
-		p.setPlan(plan);
+		p.setPlan(plan, new Date());
 		p.setTelefono(telefono);
 		return p;
 	}
