@@ -1,5 +1,7 @@
 package ar.com.tpclinica.persistencia;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import ar.com.tpclinica.negocio.*;
@@ -162,15 +164,19 @@ public class Hidratador {
 	
 	public void hidratarPacientes(Repositorio<Paciente> repo){
 		int cantidad = 5;
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
 		Paciente p[] = new Paciente[cantidad];
 		
 		Plan plan = new Plan();
-		p[0] = crearPaciente("Gonzalez", "Gonzalo", 30521129, 1130, "gg@mail.com", "4444-5454", plan);
-		p[1] = crearPaciente("Ramirez", "Ramiro", 35641612, 1135, "rr@mail.com", "4452-7878", plan);
-		p[2] = crearPaciente("Gonzalez", "Ramiro", 28546548, 1211, "rg@mail.com", "4999-5454", plan);
-		p[3] = crearPaciente("Martinez", "Martin", 21333447, 1251, "mm@mail.com", "4049-7894", plan);
-		p[4] = crearPaciente("Rodriguez", "Rodrigo", 3153478, 1255, "rod@mail.com", "5059-1234", plan);
-		
+		try {
+			p[0] = crearPaciente("Gonzalez", "Gonzalo", 30521129, 1130, "gg@mail.com", "4444-5454", plan, formatter.parse("2007-04-30"));
+			p[1] = crearPaciente("Ramirez", "Ramiro", 35641612, 1135, "rr@mail.com", "4452-7878", plan, formatter.parse("2006-05-29"));
+			p[2] = crearPaciente("Gonzalez", "Ramiro", 28546548, 1211, "rg@mail.com", "4999-5454", plan, formatter.parse("2005-06-28"));
+			p[3] = crearPaciente("Martinez", "Martin", 21333447, 1251, "mm@mail.com", "4049-7894", plan, formatter.parse("2004-07-27"));
+			p[4] = crearPaciente("Rodriguez", "Rodrigo", 3153478, 1255, "rod@mail.com", "5059-1234", plan, formatter.parse("2003-08-2"));
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}		
 		for (int i=0; i<cantidad; i++){
 			repo.modify(p[i].getId(), p[i]);
 		}
@@ -188,14 +194,14 @@ public class Hidratador {
 	}
 	private Paciente crearPaciente(String ap, String nombre, long dni,
 									int id, String mail, String telefono,
-									Plan plan){
+									Plan plan, Date fechaInicioPlan){
 		Paciente p = new Paciente();
 		p.setApellido(ap);
 		p.setDni(dni);
 		p.setId(id);
 		p.setMail(mail);
 		p.setNombre(nombre);
-		p.setPlan(plan, new Date());
+		p.setPlan(plan, fechaInicioPlan);
 		p.setTelefono(telefono);
 		return p;
 	}
