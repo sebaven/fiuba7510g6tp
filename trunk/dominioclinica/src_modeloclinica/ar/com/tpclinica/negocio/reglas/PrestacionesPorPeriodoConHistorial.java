@@ -5,8 +5,6 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 
 import ar.com.tpclinica.negocio.OrdenMedica;
-import ar.com.tpclinica.negocio.Prestacion;
-import ar.com.tpclinica.serviciosaplicacion.ServiciosAplicacionClinicaPaciente;
 
 public class PrestacionesPorPeriodoConHistorial extends Operando {
 	private int periodo;
