@@ -1,9 +1,9 @@
 package ar.com.tpclinica.negocio.reglas;
 
-public class Resultado {
+public class ResultadoRegla {
 public String resultado;
 	
-	public Resultado (String res){
+	public ResultadoRegla (String res){
 		this.resultado = res;
 	}
 
