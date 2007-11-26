@@ -79,7 +79,6 @@ public class OrdenMedica {
 	 * @return the items
 	 */
 	public List<OrdenMedicaItem> getItems() {
-		this.items = new ArrayList<OrdenMedicaItem>();
 		return items;
 	}
 
