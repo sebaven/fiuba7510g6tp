@@ -5,6 +5,7 @@ import java.util.List;
 
 import ar.com.tpclinica.negocio.exepciones.OrdenMedicaInvalidaException;
 import ar.com.tpclinica.negocio.reglas.Operacion;
+import ar.com.tpclinica.negocio.reglas.ResultadoRegla;
 
 public class Plan {
 	private  Operacion operacion;
@@ -17,7 +18,7 @@ public class Plan {
 		this.operacion = operacion;
 	}
 
-	public ar.com.tpclinica.negocio.reglas.Resultado validarOrden(OrdenMedica ordenMedica) throws OrdenMedicaInvalidaException{
+	public ResultadoRegla validarOrden(OrdenMedica ordenMedica) throws OrdenMedicaInvalidaException{
 		return operacion.aplicar(ordenMedica);
 		
 		
