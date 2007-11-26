@@ -1,6 +1,6 @@
 package ar.com.tplaboratorio.servicios.orden.dto;
 
-public class OrdenesMedicasDTO {
+public class OrdeneMedicaDTO {
 
 	private String paciente;
 	private String medico;
