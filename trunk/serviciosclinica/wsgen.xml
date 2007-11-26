@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+
+<project default="main" basedir="." name="serviciosCLINICA">
+
+<echo message="pulling in property files"/>
+<property file="axisservice.properties"/>
+
+<path id="axis.classpath">
+	  <fileset dir="D:/workspaces/tptecnicas/commonslibs/lib">
+	    <include name="**/*.jar" />
+	  </fileset>
+	</path>
+
+<taskdef resource="axis-tasks.properties"
+	  classpathref="axis.classpath" />
+	
+<echo message="calling the web services generation ant task: wsgen"/>
+ <target name="main" >
+  	 <wsgen/>
+  </target>
+ 
+	 <target name="generateStubsTest">
+	  
+	 	<axis-wsdl2java
+	 	  output="test"
+	 	  testcase="true"
+	 	  verbose="true"
+	 	  url="http://localhost:8080/servidorwebclinica/services/ServiciosRemotosCParaLaboratorio?wsdl" >
+	 	    
+	 	  </axis-wsdl2java>
+	 </target>
+	
+	 <target name="generateStubsRemoteFacade">
+	  
+	 	<axis-wsdl2java
+	 	  output="src_serviciosclinica"
+	 	  testcase="true"
+	 	  verbose="true"
+	 	  url="http://localhost:8080/servidorwelaboratorio/services/ServiciosRemotosLParaClinica?wsdl" >
+	 	    
+	 	  </axis-wsdl2java>
+	 </target>
+</project>
