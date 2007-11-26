@@ -41,6 +41,7 @@ public class PrestacionesPorPeriodoConHistorial extends Operando {
 	public PrestacionesPorPeriodoConHistorial(String presta, int perio) {
 		periodo = perio;
 		prestacion = presta;
+		this.setTipo(3);
 	}
 	
 	public int getValor(OrdenMedica om)

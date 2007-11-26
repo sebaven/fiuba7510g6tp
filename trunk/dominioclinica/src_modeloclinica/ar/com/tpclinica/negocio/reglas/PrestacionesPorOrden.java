@@ -8,6 +8,7 @@ private String prestacion;
 	
 	public PrestacionesPorOrden(String presta) {
 		prestacion = presta;
+		this.setTipo(2);
 	}
 
 	/**

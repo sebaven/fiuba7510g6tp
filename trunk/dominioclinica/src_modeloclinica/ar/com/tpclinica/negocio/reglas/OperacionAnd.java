@@ -11,7 +11,9 @@ private Operacion primerOperacion, segundaOperacion;
 	public Operacion getPrimerOperacion() {
 		return primerOperacion;
 	}
-
+	public int getTipo(){
+		return 2;
+	}
 	/**
 	 * @param primerOperacion the primerOperacion to set
 	 */
@@ -38,9 +40,9 @@ private Operacion primerOperacion, segundaOperacion;
 		segundaOperacion = B;
 	}
 
-	public ResultadoRegla aplicar(OrdenMedica om) {
+	public Resultado aplicar(OrdenMedica om) {
 		String resultadoPrimerOperacion,resultadoSegundaOperacion;
-		ResultadoRegla retVal;
+		Resultado retVal;
 		String resultadoFinal;
 		resultadoPrimerOperacion = this.primerOperacion.aplicar(om).getResultado();
 		resultadoSegundaOperacion = this.segundaOperacion.aplicar(om).getResultado();
@@ -51,7 +53,7 @@ private Operacion primerOperacion, segundaOperacion;
 				resultadoFinal = "Autorizar";
 			else
 				resultadoFinal = "Verdadero";
-		retVal = new ResultadoRegla(resultadoFinal);
+		retVal = new Resultado(resultadoFinal);
 		return retVal;
 	}
 	@Override

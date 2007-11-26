@@ -14,12 +14,15 @@ public class Suma extends OperacionConOperandos {
 	public Operacion getOp() {
 		return op;
 	}
+	public int getTipo(){
+		return 1;
+	}
 
 	public void setOp(OperacionConOperandos op) {
 		this.op = op;
 	}
 	
-	public ResultadoRegla aplicar (OrdenMedica om)
+	public Resultado aplicar (OrdenMedica om)
 	{
 		this.op.setPrimerOperando(new Cantidad(this.getPrimerOperando().getValor(om) + this.getSegundoOperando().getValor(om)));
 		return this.op.aplicar(om);

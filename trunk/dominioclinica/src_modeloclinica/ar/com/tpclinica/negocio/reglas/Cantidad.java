@@ -21,6 +21,7 @@ public class Cantidad extends Operando {
 
 	public Cantidad(int cantidad) {
 		valor = cantidad;
+		this.setTipo(0);
 	}
 
 	@Override
