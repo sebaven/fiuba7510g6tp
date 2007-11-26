@@ -23,15 +23,6 @@ public class MesesEnPlan extends Operando {
 	
     public static int getDifEnMeses( java.util.Date pFrom, java.util.Date pTo )
     {
-        int lMultiplier = 1;
-        if ( pFrom.after( pTo ) );
-        {
-            lMultiplier = -1;
-            java.util.Date pTemp = pTo;
-            pTo = pFrom;
-            pFrom = pTemp;
-        }
- 
         Calendar lFrom = new GregorianCalendar();
         lFrom.setTime( pFrom );
         Calendar lTo = new GregorianCalendar();
@@ -64,6 +55,6 @@ public class MesesEnPlan extends Operando {
             lMonthDiff = 12 + lMonthDiff;
         }
  
-        return lMultiplier * ( lYearDiff * 12 + lMonthDiff );
+        return  ( lYearDiff * 12 + lMonthDiff );
     }
 }
