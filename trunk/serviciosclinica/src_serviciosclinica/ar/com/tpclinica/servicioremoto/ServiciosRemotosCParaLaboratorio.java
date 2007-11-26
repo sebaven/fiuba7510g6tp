@@ -1,5 +1,7 @@
 package ar.com.tpclinica.servicioremoto;
 
+import java.rmi.RemoteException;
+
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.collections.Predicate;
 
@@ -7,8 +9,10 @@ import ar.com.tpclinica.negocio.OrdenMedica;
 import ar.com.tpclinica.negocio.OrdenMedicaItem;
 import ar.com.tpclinica.persistencia.RepositorioOrdenes;
 import ar.com.tpclinica.persistencia.RepositoriosProvider;
+import ar.com.tpclinica.persistencia.excepciones.ObjetoNoExisteExcepcion;
 import ar.com.tpclinica.servicioremoto.orden.ResultadoItemDTO;
 import ar.com.tpclinica.servicioremoto.orden.ResultadoOrdenMedicaDTO;
+import ar.com.tpclinica.serviciosremotefacade.RemoteFacadeException;
 
 
 /**
@@ -28,7 +32,13 @@ public class ServiciosRemotosCParaLaboratorio {
 	public void recibirResultadoOrdenMedica(ResultadoOrdenMedicaDTO resultadoOrdenMedicaDTO){
 		ResultadoAssembler resultadoAssembler=new ResultadoAssembler();
 		RepositorioOrdenes repoOrden=RepositoriosProvider.getInstancia().getRepositorioOrdenes();
-		OrdenMedica orden=repoOrden.getPorNroOrden(resultadoOrdenMedicaDTO.getNroOrden());
+		OrdenMedica orden;
+		try {
+			orden = repoOrden.getPorNroOrden(resultadoOrdenMedicaDTO.getNroOrden());
+		} catch (ObjetoNoExisteExcepcion e) {
+			e.printStackTrace();
+			throw new RemoteFacadeException("no existe orden");
+		}
 	
 		ResultadoItemDTO[] resultadosItemDTO=resultadoOrdenMedicaDTO.getResultadoItem();
 		
