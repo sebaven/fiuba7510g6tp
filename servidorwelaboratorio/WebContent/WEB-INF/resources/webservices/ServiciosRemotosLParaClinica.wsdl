@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://localhost:8080/servidorwelaboratorio/services/ServiciosRemotosLParaClinica" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://localhost:8080/servidorwelaboratorio/services/ServiciosRemotosLParaClinica" xmlns:intf="http://localhost:8080/servidorwelaboratorio/services/ServiciosRemotosLParaClinica" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns1="urn:recepcionarOrden" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema targetNamespace="urn:recepcionarOrden" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://localhost:8080/servidorwelaboratorio/services/ServiciosRemotosLParaClinica"/>
+   <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+   <complexType name="ItemOrdenMedicaDTO">
+    <sequence>
+     <element name="codigoPrestacion" type="xsd:int"/>
+     <element name="descripcion" nillable="true" type="xsd:string"/>
+     <element name="descripcionPrestacion" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+   <complexType name="OrdenMedicaDTo">
+    <sequence>
+     <element name="diagnostico" nillable="true" type="xsd:string"/>
+     <element name="items" nillable="true" type="impl:ArrayOf_tns1_ItemOrdenMedicaDTO"/>
+     <element name="medico" nillable="true" type="xsd:string"/>
+     <element name="nroOrden" type="xsd:int"/>
+     <element name="paciente" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+  </schema>
+  <schema targetNamespace="http://localhost:8080/servidorwelaboratorio/services/ServiciosRemotosLParaClinica" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="urn:recepcionarOrden"/>
+   <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+   <complexType name="ArrayOf_tns1_ItemOrdenMedicaDTO">
+    <complexContent>
+     <restriction base="soapenc:Array">
+      <attribute ref="soapenc:arrayType" wsdl:arrayType="tns1:ItemOrdenMedicaDTO[]"/>
+     </restriction>
+    </complexContent>
+   </complexType>
+   <complexType name="ArrayOf_tns1_OrdenMedicaDTo">
+    <complexContent>
+     <restriction base="soapenc:Array">
+      <attribute ref="soapenc:arrayType" wsdl:arrayType="tns1:OrdenMedicaDTo[]"/>
+     </restriction>
+    </complexContent>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="recibirOrdenesMedicasResponse">
+
+   </wsdl:message>
+
+   <wsdl:message name="recibirOrdenesMedicasRequest">
+
+      <wsdl:part name="ordenes" type="impl:ArrayOf_tns1_OrdenMedicaDTo"/>
+
+   </wsdl:message>
+
+   <wsdl:portType name="ServiciosRemotosLParaClinica">
+
+      <wsdl:operation name="recibirOrdenesMedicas" parameterOrder="ordenes">
+
+         <wsdl:input message="impl:recibirOrdenesMedicasRequest" name="recibirOrdenesMedicasRequest"/>
+
+         <wsdl:output message="impl:recibirOrdenesMedicasResponse" name="recibirOrdenesMedicasResponse"/>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="ServiciosRemotosLParaClinicaSoapBinding" type="impl:ServiciosRemotosLParaClinica">
+
+      <wsdlsoap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="recibirOrdenesMedicas">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="recibirOrdenesMedicasRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://servicios.tplaboratorio.com.ar" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="recibirOrdenesMedicasResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://localhost:8080/servidorwelaboratorio/services/ServiciosRemotosLParaClinica" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="ServiciosRemotosLParaClinicaService">
+
+      <wsdl:port binding="impl:ServiciosRemotosLParaClinicaSoapBinding" name="ServiciosRemotosLParaClinica">
+
+         <wsdlsoap:address location="http://localhost:8080/servidorwelaboratorio/services/ServiciosRemotosLParaClinica"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
