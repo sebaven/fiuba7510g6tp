@@ -1,12 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="test"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/dominioclinica"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="src" path="src_serviciosclinica"/>
-	<classpathentry kind="lib" path="lib/commons-collections-3.2.jar"/>
-	<classpathentry kind="lib" path="lib/junit.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/persistenciaclinica"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/commonslibs"/>
+	<classpathentry kind="lib" path="/commonslibs/lib/axis.jar"/>
+	<classpathentry kind="lib" path="/commonslibs/lib/commons-collections-3.2.jar"/>
+	<classpathentry kind="lib" path="/commonslibs/lib/commons-discovery-0.2.jar"/>
+	<classpathentry kind="lib" path="/commonslibs/lib/commons-logging-1.0.4.jar"/>
+	<classpathentry kind="lib" path="/commonslibs/lib/jaxrpc.jar"/>
+	<classpathentry kind="lib" path="/commonslibs/lib/junit.jar"/>
+	<classpathentry kind="lib" path="/commonslibs/lib/log4j-1.2.8.jar"/>
+	<classpathentry kind="lib" path="/commonslibs/lib/saaj.jar"/>
+	<classpathentry kind="lib" path="/commonslibs/lib/wsdl4j-1.5.1.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -8,7 +8,7 @@ import org.apache.commons.collections.Predicate;
 import ar.com.tpclinica.negocio.OrdenMedica;
 import ar.com.tpclinica.negocio.OrdenMedicaEstado;
 import ar.com.tpclinica.persistencia.RepositoriosProvider;
-import ar.com.tpclinica.serviciosimp.ServiciosRemotosClinicaFactory;
+import ar.com.tpclinica.serviciosremotefacade.ServiciosRemotosClinicaFactory;
 
 public class EnviadorDeOrdenesAlLaboratorio extends ServiciosAplicacionClinica {
 
