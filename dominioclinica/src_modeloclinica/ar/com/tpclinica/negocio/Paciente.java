@@ -1,6 +1,8 @@
 package ar.com.tpclinica.negocio;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class Paciente {
 	public int id;
@@ -11,6 +13,7 @@ public class Paciente {
 	private String mail;
 	private Plan plan;
 	private Date fechaInicioPlan;
+	private List<OrdenMedica> ordenesMedicas;
 	
 	/**
 	 * @return the apellido
@@ -125,6 +128,22 @@ public class Paciente {
 	 */
 	public void setPlan(Plan plan) {
 		this.plan = plan;
+	}
+
+	public void addOrden(OrdenMedica ordenMedica) {
+		
+		this.getOrdenesMedicas().add(ordenMedica);
+	}
+
+	public List<OrdenMedica> getOrdenesMedicas() {
+		if(ordenesMedicas==null){
+			this.ordenesMedicas=new ArrayList<OrdenMedica>();
+		}
+		return this.ordenesMedicas;
+	}
+
+	public void setOrdenesMedicas(List<OrdenMedica> ordenesMedicas) {
+		this.ordenesMedicas = ordenesMedicas;
 	}
 
 	
