@@ -1,5 +1,8 @@
 package ar.com.tpclinica.serviciosaplicacion;
 
+import java.util.Collection;
+
+import ar.com.tpclinica.negocio.OrdenMedica;
 import ar.com.tpclinica.negocio.Paciente;
 import ar.com.tpclinica.persistencia.RepositoriosProvider;
 import ar.com.tpclinica.persistencia.excepciones.ClaveNoExisteExcepcion;
@@ -29,6 +32,11 @@ public class ServiciosAplicacionClinicaPaciente extends
 			ClaveNoExisteExcepcion {
 		RepositoriosProvider.getInstancia().getRepositorioPacientes().borrar(
 				this.getPaciente(idPaciente));
+	}
+	
+	public Collection<OrdenMedica> getTodasLasOrdenesMedicasDePaciente(int idPaciente) throws ClaveNoExisteExcepcion{
+		Paciente paciente = RepositoriosProvider.getInstancia().getRepositorioPacientes().get(idPaciente);
+		return RepositoriosProvider.getInstancia().getRepositorioOrdenes().getPorPaciente(paciente);
 	}
 
 }
