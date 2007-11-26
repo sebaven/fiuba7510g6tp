@@ -113,5 +113,19 @@ public class Paciente {
 		return fechaInicioPlan;
 	}
 
+	/**
+	 * @param fechaInicioPlan the fechaInicioPlan to set
+	 */
+	public void setFechaInicioPlan(Date fechaInicioPlan) {
+		this.fechaInicioPlan = fechaInicioPlan;
+	}
+
+	/**
+	 * @param plan the plan to set
+	 */
+	public void setPlan(Plan plan) {
+		this.plan = plan;
+	}
+
 	
 }
