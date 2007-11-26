@@ -1,5 +1,6 @@
 package ar.com.tpclinica.negocio;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
@@ -7,7 +8,7 @@ import java.util.List;
 public class OrdenMedica {
 
 	private int id;
-	
+
 	private OrdenMedicaEstado estado;
 
 	private boolean enviadaALab;
@@ -19,13 +20,12 @@ public class OrdenMedica {
 	private Medico medico;
 
 	private List<OrdenMedicaItem> items;
-	
+
 	private int nroOrden;
-	
+
 	private Date fechaOrden;
-	
-	
-	public OrdenMedica(){
+
+	public OrdenMedica() {
 		items = new LinkedList<OrdenMedicaItem>();
 	}
 
@@ -79,6 +79,7 @@ public class OrdenMedica {
 	 * @return the items
 	 */
 	public List<OrdenMedicaItem> getItems() {
+		this.items = new ArrayList<OrdenMedicaItem>();
 		return items;
 	}
 
@@ -136,7 +137,8 @@ public class OrdenMedica {
 	}
 
 	/**
-	 * @param id the id to set
+	 * @param id
+	 *            the id to set
 	 */
 	public void setId(int id) {
 		this.id = id;
