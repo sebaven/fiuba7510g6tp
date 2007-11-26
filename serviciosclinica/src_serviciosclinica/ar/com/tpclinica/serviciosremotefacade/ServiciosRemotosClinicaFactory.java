@@ -1,4 +1,4 @@
-package ar.com.tpclinica.serviciosimp;
+package ar.com.tpclinica.serviciosremotefacade;
 
 import ar.com.tpclinica.servicios.interfaces.ISerrvicioRemotoOrdenMedica;
 
