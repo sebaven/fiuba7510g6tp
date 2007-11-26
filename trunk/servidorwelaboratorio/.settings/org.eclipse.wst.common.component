@@ -6,6 +6,7 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src_persistencialaboratorio"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src_servicioslaboratorio"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src_servidorweblaboratorio"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/test"/>
         <dependent-module deploy-path="/WEB-INF/lib" handle="module:/resource/servicioslaboratorio/servicioslaboratorio">
             <dependency-type>uses</dependency-type>
         </dependent-module>

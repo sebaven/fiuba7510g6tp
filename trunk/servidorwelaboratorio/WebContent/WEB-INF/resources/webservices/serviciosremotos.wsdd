@@ -17,11 +17,11 @@
        <parameter name="allowedMethods" value="*"/>     
  
     	<!--  class pakg -->
-      <beanMapping qname="myNS:OrdenMedicaDTo" xmlns:myNS="urn:RecepcionarOrdene"
+      <beanMapping qname="myNS:OrdenMedicaDTo" xmlns:myNS="urn:recepcionarOrden"
        languageSpecificType="java:ar.com.tplaboratorio.servicios.orden.dto.OrdeneMedicaDTO"/>
       
 
-       <beanMapping qname="myNS:ItemOrdenMedicaDTO" xmlns:myNS="urn:RecepcionarOrdene"
+       <beanMapping qname="myNS:ItemOrdenMedicaDTO" xmlns:myNS="urn:recepcionarOrden"
        languageSpecificType="java:ar.com.tplaboratorio.servicios.orden.dto.ItemOrdenMedicaDTO"/>
        
        <arrayMapping qname="ns:stringArray" xmlns:ns="StringArray" type="java:java.lang.String[]" innerType="ns2:String"
