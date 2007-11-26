@@ -52,9 +52,16 @@ public class PrestacionesPorPeriodoConHistorial extends Operando {
         Date fechaInicial = new Date(lTemp.getTimeInMillis());
 		int cant_veces = 0;
 
+		System.out.println("this.prestacion=" + this.prestacion);
 		for (OrdenMedica omActual : om.getPaciente().getOrdenesMedicas()) {
-			if (om.getFechaOrden().after(fechaInicial)) { // se tiene en cuenta a la orden
+			if (omActual.getFechaOrden().after(fechaInicial)) { // se tiene en cuenta a la orden
+				System.out.println("orden.fecha=" + omActual.getFechaOrden().toString());
 				for (ar.com.tpclinica.negocio.OrdenMedicaItem omi : omActual.getItems()) { // se itera sobre los items
+					System.out.println("omi:");
+					omi.getPrestacion();
+					//System.out.println("omi.id=" + omi.getPrestacion().getId());
+					System.out.println("omi.cod=" + omi.getPrestacion().getCodigo());
+					System.out.println("omi.desc=" + omi.getPrestacion().getDescripcion());
 					if (omi.getPrestacion().getDescripcion().equals(this.prestacion)) // es esta Prestacion... se la cuenta...
 						cant_veces++; 
 				}
