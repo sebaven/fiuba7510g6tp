@@ -1,5 +1,6 @@
 package ar.com.tplaboratorio.negocio;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class OrdenMedicaLab {
@@ -33,15 +34,25 @@ public class OrdenMedicaLab {
 	public void setDiagnostico(String diagnostico) {
 		this.diagnostico = diagnostico;
 	}
-	public List<ItemOrdenMedica> obtenerItems() {
-		return items;
-	}
+	
 	public void setItems(List<ItemOrdenMedica> items) {
 		this.items = items;
 	}
 	public void agregarItem(ItemOrdenMedica item){
-		this.items.add(item);
+		this.getItems().add(item);
 		
+	}
+	public int getNroOrden() {
+		return nroOrden;
+	}
+	public void setNroOrden(int nroOrden) {
+		this.nroOrden = nroOrden;
+	}
+	public List<ItemOrdenMedica> getItems() {
+		if(this.items==null){
+			this.items=new ArrayList();
+		}
+		return items;
 	}
 	
 	
