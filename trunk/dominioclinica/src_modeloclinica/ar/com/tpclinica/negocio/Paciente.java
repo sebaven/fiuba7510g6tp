@@ -1,5 +1,7 @@
 package ar.com.tpclinica.negocio;
 
+import java.util.Date;
+
 public class Paciente {
 	public int id;
 	private String nombre;
@@ -8,6 +10,7 @@ public class Paciente {
 	private String telefono;
 	private String mail;
 	private Plan plan;
+	private Date fechaInicioPlan;
 	
 	/**
 	 * @return the apellido
@@ -95,13 +98,16 @@ public class Paciente {
 
 	/**
 	 * @param plan the plan to set
+	 * @param _fechaInicioPlan 
 	 */
-	public void setPlan(Plan plan) {
+	public void setPlan(Plan plan, Date _fechaInicioPlan) {
 		this.plan = plan;
+		this.fechaInicioPlan = _fechaInicioPlan;
 	}
 
 	public Plan getPlan() {
 		return plan;
 	}
 
+	
 }
