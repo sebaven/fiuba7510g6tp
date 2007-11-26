@@ -4,23 +4,23 @@ import ar.com.tpclinica.negocio.OrdenMedica;
 import ar.com.tpclinica.negocio.Prestacion;
 
 public class PrestacionesPorOrden extends Operando {
-private Prestacion prestacion;
+private String prestacion;
 	
-	public PrestacionesPorOrden(Prestacion presta) {
+	public PrestacionesPorOrden(String presta) {
 		prestacion = presta;
 	}
 
 	/**
 	 * @return the prestacion
 	 */
-	public Prestacion getPrestacion() {
+	public String getPrestacion() {
 		return prestacion;
 	}
 
 	/**
 	 * @param prestacion the prestacion to set
 	 */
-	public void setPrestacion(Prestacion prestacion) {
+	public void setPrestacion(String prestacion) {
 		this.prestacion = prestacion;
 	}
 
@@ -29,7 +29,7 @@ private Prestacion prestacion;
 		int cant_veces = 0;
 		
 		for (ar.com.tpclinica.negocio.OrdenMedicaItem omi : om.getItems()) {
-			 if (omi.getPrestacion().getId() == this.prestacion.getId()) cant_veces++;
+			 if (omi.getPrestacion().getDescripcion().equals(this.prestacion)) cant_veces++;
 		 }
 		return cant_veces;
 	}
