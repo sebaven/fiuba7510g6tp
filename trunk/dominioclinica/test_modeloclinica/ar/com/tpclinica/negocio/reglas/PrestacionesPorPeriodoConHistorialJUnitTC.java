@@ -34,20 +34,20 @@ public class PrestacionesPorPeriodoConHistorialJUnitTC extends TestCase {
 		omi1.setPrestacion(p1);
 		
 		OrdenMedicaItem omi2 = new OrdenMedicaItem();
-		omi1.setDescripcion("omi2");
-		omi1.setPrestacion(p2);
+		omi2.setDescripcion("omi2");
+		omi2.setPrestacion(p2);
 		
 		OrdenMedicaItem omi3 = new OrdenMedicaItem();
-		omi1.setDescripcion("omi3");
-		omi1.setPrestacion(p3);
+		omi3.setDescripcion("omi3");
+		omi3.setPrestacion(p3);
 		
 		OrdenMedicaItem omi4 = new OrdenMedicaItem();
-		omi1.setDescripcion("omi4");
-		omi1.setPrestacion(p2);
+		omi4.setDescripcion("omi4");
+		omi4.setPrestacion(p2);
 		
 		OrdenMedicaItem omi5 = new OrdenMedicaItem();
-		omi1.setDescripcion("omi5");
-		omi1.setPrestacion(p3);
+		omi5.setDescripcion("omi5");
+		omi5.setPrestacion(p3);
 
 		
 		OrdenMedica om1 = new OrdenMedica();
