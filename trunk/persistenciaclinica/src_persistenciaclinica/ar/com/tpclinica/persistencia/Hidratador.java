@@ -156,6 +156,7 @@ public class Hidratador {
 		it5.setDescripcion("Glucemia");
 		om[2].agregarItem(it5);
 		
+		//Comentar este bloque para probar que la orden sea aceptada (sin importar la fecha de ingreso)
 		OrdenMedicaItem it6 = new OrdenMedicaItem();
 		it6.setPrestacion(repPrestaciones.get(3)); //tomografia
 		it6.setDescripcion("Computada de craneo");
@@ -179,7 +180,7 @@ public class Hidratador {
 			p[1] = crearPaciente("Ramirez", "Ramiro", 35641612, 1135, "rr@mail.com", "4452-7878", repoPlan.get(1000), formatter.parse("2006-05-29"));
 			p[2] = crearPaciente("Gonzalez", "Ramiro", 28546548, 1211, "rg@mail.com", "4999-5454", repoPlan.get(10000), formatter.parse("2005-06-28"));
 			p[3] = crearPaciente("Martinez", "Martin", 21333447, 1251, "mm@mail.com", "4049-7894", repoPlan.get(0), formatter.parse("2004-07-27"));
-			p[4] = crearPaciente("Rodriguez", "Rodrigo", 3153478, 1255, "rod@mail.com", "5059-1234", repoPlan.get(10000), formatter.parse("2003-08-2"));
+			p[4] = crearPaciente("Rodriguez", "Rodrigo", 3153478, 1255, "rod@mail.com", "5059-1234", repoPlan.get(10000), formatter.parse("2003-08-2")); //cambiar 2003 por 2007 para que la orden sea rechazada (si tiene tomografia)
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}		
@@ -226,8 +227,8 @@ public class Hidratador {
 		Operando presHistorial = new MesesEnPlan();
 		Operando c10 = new Cantidad(10);
 		
-		Operacion comparar2 = new Comparar(presHistorial,c10,opD5,opD4,opD3);		
-		Operacion comparar1 = new Comparar(presPorOrden,c0,comparar2,opD2,opD1);
+		Operacion comparar2 = new Comparar(presHistorial,c10,opD5,opD3,opD4);		
+		Operacion comparar1 = new Comparar(presPorOrden,c0,comparar2,opD1,opD2);
 		
 		p[2].setOperacion(comparar1);
 		
