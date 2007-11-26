@@ -2,32 +2,27 @@ package ar.com.tpclinica.serviciosaplicacion;
 
 import ar.com.tpclinica.negocio.Plan;
 import ar.com.tpclinica.persistencia.Repositorio;
+import ar.com.tpclinica.persistencia.RepositoriosProvider;
+import ar.com.tpclinica.persistencia.excepciones.ClaveNoExisteExcepcion;
+import ar.com.tpclinica.persistencia.excepciones.ObjetoNoExisteExcepcion;
 
 public class ServiciosAplicacionClinicaPlan extends ServiciosAplicacionClinica {
-	private Repositorio<Plan> repositorioPlanes;
-	public Plan getPlan(int idPlan) {
-		return repositorioPlanes.get(idPlan);
+	public Plan getPlan(int idPlan) throws ClaveNoExisteExcepcion {
+		return RepositoriosProvider.getInstancia().getRepositorioPlanes().get(
+				idPlan);
 	}
-	public Plan crearNuevoPlan(String nombre, String regla) {
-		return null;
+
+	public void crearNuevoPlan(Plan plan) {
+		RepositoriosProvider.getInstancia().getRepositorioPlanes().add(plan);
 	}
-	public void borrarPlan(int idPlan) {
-		repositorioPlanes.borrar(getPlan(idPlan));
+
+	public void borrarPlan(int idPlan) throws ObjetoNoExisteExcepcion, ClaveNoExisteExcepcion {
+		RepositoriosProvider.getInstancia().getRepositorioPlanes().borrar(this.getPlan(idPlan));
 	}
-	public void modificarPlan(int idPlan) {
-		
+
+	public void modificarPlan(int idPlan, Plan planAModificar) {
+		RepositoriosProvider.getInstancia().getRepositorioPlanes().modify(idPlan, planAModificar);
 	}
-	/**
-	 * @return the repositorioPlanes
-	 */
-	public Repositorio<Plan> getRepositorioPlanes() {
-		return repositorioPlanes;
-	}
-	/**
-	 * @param repositorioPlanes the repositorioPlanes to set
-	 */
-	public void setRepositorioPlanes(Repositorio<Plan> repositorioPlanes) {
-		this.repositorioPlanes = repositorioPlanes;
-	}
+
 
 }

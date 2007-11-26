@@ -5,11 +5,13 @@ import java.util.Collection;
 import ar.com.tpclinica.negocio.Especialidad;
 import ar.com.tpclinica.negocio.Medico;
 import ar.com.tpclinica.persistencia.RepositoriosProvider;
+import ar.com.tpclinica.persistencia.excepciones.ClaveNoExisteExcepcion;
+import ar.com.tpclinica.persistencia.excepciones.ObjetoNoExisteExcepcion;
 
 public class ServiciosAplicacionClinicaMedico extends
 		ServiciosAplicacionClinica {
 
-	public Medico getMedico(int idMedico) {
+	public Medico getMedico(int idMedico) throws ClaveNoExisteExcepcion {
 		return RepositoriosProvider.getInstancia().getRepositorioMedico().get(
 				idMedico);
 	}
@@ -19,7 +21,7 @@ public class ServiciosAplicacionClinicaMedico extends
 				medicoAAgregar);
 	}
 
-	public void borrarMedico(int idMedico) {
+	public void borrarMedico(int idMedico) throws ObjetoNoExisteExcepcion, ClaveNoExisteExcepcion {
 		RepositoriosProvider.getInstancia().getRepositorioMedico().borrar(
 				getMedico(idMedico));
 	}
