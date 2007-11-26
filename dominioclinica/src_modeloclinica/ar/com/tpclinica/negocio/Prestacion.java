@@ -47,6 +47,10 @@ public class Prestacion {
 	public void setCodigo(String codigo) {
 		this.codigo = codigo;
 	}
+	public int compareTo(Prestacion prestacion) {
+		if ((this.descripcion.compareTo(prestacion.descripcion) == 0) && (this.id == prestacion.id) && (this.codigo.compareTo(prestacion.codigo) == 0)) return 0;
+		return 1;
+	}
 	
 
 }
