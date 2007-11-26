@@ -29,6 +29,12 @@ public class PrestacionesPorPeriodoConHistorialJUnitTC extends TestCase {
 		Prestacion p3 = new Prestacion("rad", "radiología");
 		p3.setId(3);
 		
+		Prestacion p4 = new Prestacion("odon", "odontología");
+		p4.setId(4);
+
+		Prestacion p5 = new Prestacion("clin", "clínico");
+		p5.setId(5);
+
 		OrdenMedicaItem omi1 = new OrdenMedicaItem();
 		omi1.setDescripcion("omi1");
 		omi1.setPrestacion(p1);
@@ -43,11 +49,11 @@ public class PrestacionesPorPeriodoConHistorialJUnitTC extends TestCase {
 		
 		OrdenMedicaItem omi4 = new OrdenMedicaItem();
 		omi4.setDescripcion("omi4");
-		omi4.setPrestacion(p2);
+		omi4.setPrestacion(p4);
 		
 		OrdenMedicaItem omi5 = new OrdenMedicaItem();
 		omi5.setDescripcion("omi5");
-		omi5.setPrestacion(p3);
+		omi5.setPrestacion(p5);
 
 		
 		OrdenMedica om1 = new OrdenMedica();
@@ -55,7 +61,6 @@ public class PrestacionesPorPeriodoConHistorialJUnitTC extends TestCase {
 		om1.agregarItem(omi1);
 		om1.agregarItem(omi2);
 		om1.agregarItem(omi3);
-		om1.getItems();
 		calendar.set(Calendar.YEAR, Calendar.getInstance().get(Calendar.YEAR));
 		calendar.set(Calendar.MONTH, Calendar.getInstance().get(Calendar.MONTH));
 		calendar.set(Calendar.DAY_OF_MONTH, Calendar.getInstance().get(Calendar.DAY_OF_MONTH) - 10);
@@ -82,16 +87,19 @@ public class PrestacionesPorPeriodoConHistorialJUnitTC extends TestCase {
 		om3.setFechaOrden(new Date(calendar.getTimeInMillis()));
 
 		
-		PrestacionesPorPeriodoConHistorial pppch1 = new PrestacionesPorPeriodoConHistorial(p1.getDescripcion(), 45);
-		Assert.assertEquals(pppch1.getValor(om1), 1);
+		PrestacionesPorPeriodoConHistorial pppch1 = new PrestacionesPorPeriodoConHistorial(p3.getDescripcion(), 45);
+		Assert.assertEquals(pppch1.getValor(om1), 2); // en om1 y en om2
 
-		PrestacionesPorPeriodoConHistorial pppch2 = new PrestacionesPorPeriodoConHistorial(p1.getDescripcion(), 20);
-		Assert.assertEquals(pppch2.getValor(om1), 1);
+		PrestacionesPorPeriodoConHistorial pppch2 = new PrestacionesPorPeriodoConHistorial(p3.getDescripcion(), 20);
+		Assert.assertEquals(pppch2.getValor(om1), 1); // solo en om1
 		
-		PrestacionesPorPeriodoConHistorial pppch3 = new PrestacionesPorPeriodoConHistorial(p2.getDescripcion(), 45);
-		Assert.assertEquals(pppch3.getValor(om1), 2);
+		PrestacionesPorPeriodoConHistorial pppch3 = new PrestacionesPorPeriodoConHistorial(p1.getDescripcion(), 5);
+		Assert.assertEquals(pppch3.getValor(om1), 0);
 
-		PrestacionesPorPeriodoConHistorial pppch4 = new PrestacionesPorPeriodoConHistorial(p2.getDescripcion(), 35);
-		Assert.assertEquals(pppch4.getValor(om1), 1);
+		PrestacionesPorPeriodoConHistorial pppch4 = new PrestacionesPorPeriodoConHistorial(p3.getDescripcion(), 135);
+		Assert.assertEquals(pppch4.getValor(om1), 3); // en las 3
+
+		PrestacionesPorPeriodoConHistorial pppch5 = new PrestacionesPorPeriodoConHistorial(p3.getDescripcion(), 5);
+		Assert.assertEquals(pppch3.getValor(om2), 0); // en ninguna
 	}
 }
