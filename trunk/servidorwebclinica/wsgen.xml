@@ -29,4 +29,15 @@
 	    xmlfile="WebContent/WEB-INF/resources/webservice/serviciosremotos.wsdd"
 	    />
  </target>
+
+ <target name="generateStubs">
+  
+ 	<axis-wsdl2java
+ 	  output="test_serviciosremotosclinica"
+ 	  testcase="true"
+ 	  verbose="true"
+ 	  url="http://localhost:8080/servidorwebclinica/services/ServiciosRemotosCParaLaboratorio?wsdl" >
+ 	    
+ 	  </axis-wsdl2java>
+ </target>
 </project>
