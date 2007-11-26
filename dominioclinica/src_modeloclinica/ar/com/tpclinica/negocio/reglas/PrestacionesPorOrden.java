@@ -37,11 +37,6 @@ private String prestacion;
 	@Override
 	public boolean equals(Object obj) {
 		PrestacionesPorOrden o = (PrestacionesPorOrden)obj;
-		OrdenMedica om = null;
-		
-		if (o.getValor(om)==this.getValor(om))
-			return true;
-		else return false;
-	
+		return this.prestacion.equals(o.prestacion);
 	}
 }
