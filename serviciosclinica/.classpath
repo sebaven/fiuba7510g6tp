@@ -7,7 +7,6 @@
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="src" path="src_serviciosclinica"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/persistenciaclinica"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/commonslibs"/>
 	<classpathentry kind="lib" path="/commonslibs/lib/axis.jar"/>
 	<classpathentry kind="lib" path="/commonslibs/lib/commons-collections-3.2.jar"/>
 	<classpathentry kind="lib" path="/commonslibs/lib/commons-discovery-0.2.jar"/>
