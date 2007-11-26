@@ -9,6 +9,7 @@ import ar.com.tpclinica.negocio.reglas.ResultadoRegla;
 
 public class Plan {
 	private  Operacion operacion;
+	private int id;
 	
 	public Operacion getOperacion() {
 		return operacion;
@@ -24,6 +25,14 @@ public class Plan {
 		
 		
 		
+	}
+
+	public void setId(int i) {
+		this.id = i;		
+	}
+	
+	public int getId(){
+		return this.id;
 	}
 	
 }
