@@ -12,6 +12,11 @@ import DTORespuestaOrden.ResultadoOrdenMedicaDTO;
 import localhost.servidorwebclinica.services.ServiciosRemotosCParaLaboratorio.ServiciosRemotosCParaLaboratorio;
 import localhost.servidorwebclinica.services.ServiciosRemotosCParaLaboratorio.ServiciosRemotosCParaLaboratorioServiceLocator;
 
+/**
+ * Test case para los servicios que expone esta la aplicaicion web que utiliza este componente
+ * @author carlos
+ *
+ */
 public class SRClinicaParaLabTestCase extends WebServiceTestCase{
 
 	private ServiciosRemotosCParaLaboratorio serviciosRemotos;
@@ -32,10 +37,22 @@ public class SRClinicaParaLabTestCase extends WebServiceTestCase{
 		
 	}
 
-	
+	/**
+	 * Testeamos que funcione remotamente
+	 * @throws RemoteException
+	 */
 	public void testInvocation() throws RemoteException{
 		ResultadoOrdenMedicaDTO resultado=this.createResultadoOrden();
 		this.serviciosRemotos.recibirResultadoOrdenMedica(resultado);
+	}
+	
+	/**
+	 * Testeamos que funcione localmente
+	 */
+	public void testLocalInvocation(){
+		ar.com.tpclinica.servicioremoto.ServiciosRemotosCParaLaboratorio service=new ar.com.tpclinica.servicioremoto.ServiciosRemotosCParaLaboratorio();
+		service.recibirResultadoOrdenMedica(this.createResultadoOrdenLocal());
+		
 	}
 
 	private ResultadoOrdenMedicaDTO createResultadoOrden() {
@@ -59,12 +76,6 @@ public class SRClinicaParaLabTestCase extends WebServiceTestCase{
 		resultadoItemDTO.setTipo(2);
 		resultadoItemDTOs[0]=resultadoItemDTO;
 		return resultadoItemDTOs;
-	}
-	
-	public void testLocalInvocation(){
-		ar.com.tpclinica.servicioremoto.ServiciosRemotosCParaLaboratorio service=new ar.com.tpclinica.servicioremoto.ServiciosRemotosCParaLaboratorio();
-		service.recibirResultadoOrdenMedica(this.createResultadoOrdenLocal());
-		
 	}
 
 	private ar.com.tpclinica.servicioremoto.orden.ResultadoOrdenMedicaDTO createResultadoOrdenLocal() {
